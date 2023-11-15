@@ -1,0 +1,19 @@
+.form-group {
+  position: relative;
+}
+label {
+  position: absolute;
+}
+.form-control {
+  background-color: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: none;
+  font-size: 1rem;
+  padding: 0.6rem;
+}
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #fafafa;
+}

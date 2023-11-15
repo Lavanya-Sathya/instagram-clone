@@ -1,0 +1,34 @@
+.header {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.registerFlex {
+  width: 340px;
+}
+.registerDetails {
+  padding: 30px;
+  padding-bottom: 10px;
+  border: 0.2px solid #e0e0e0;
+}
+.RegisterSign {
+  border: 0.2px solid #e0e0e0;
+}
+.facebookRegister {
+  background-color: blue;
+  color: white;
+  padding: 2px;
+  border-radius: 7px;
+}
+.signupText {
+  font-size: 0.7rem;
+  text-align: center;
+}
+@media screen and (max-width: 450px) {
+  .registerDetails,
+  .RegisterSign {
+    border: none;
+  }
+}

@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.homepage {
+  display: flex;
+  flex-direction: row;
+}
+.homepage__nav {
+  flex: 0.2;
+  /* width: 20%;
+  border-right: 1px solid black;
+  height: 100%;
+  margin-right: 30px; */
+  /* position: absolute; */
+}
+.homepage__timeline {
+  flex: 0.8;
+  /* width: 80%; */
+}

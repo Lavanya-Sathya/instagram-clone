@@ -1,0 +1,54 @@
+.login {
+  display: flex;
+  margin: 2.02rem;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+.loginImgContainer {
+  flex: 0.3;
+}
+.loginContainer {
+  flex-basis: 375px;
+}
+
+.logDetails {
+  padding: 30px;
+  padding-bottom: 10px;
+  border: 0.2px solid #e0e0e0;
+}
+
+.logSign {
+  border: 0.2px solid #e0e0e0;
+}
+.header {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+@media screen and (max-width: 900px) {
+  .loginImgContainer {
+    display: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  .login {
+    margin: 0;
+  }
+  .logDetails,
+  .logSign {
+    border: none;
+  }
+}
+
+.divBorderOr {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+}
+.facebookLog {
+  font-size: 1rem;
+  color: rgb(34, 34, 131);
+}

@@ -1,0 +1,11 @@
+.sidenav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+}
+.sidenav__logo {
+  width: 120px;
+  margin: 25px;
+}

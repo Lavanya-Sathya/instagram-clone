@@ -1,0 +1,11 @@
+.footerLinks > a {
+  text-decoration: none;
+  color: #867b7b;
+  font-size: 0.86rem;
+}
+.footerLinks > a:hover {
+  border-bottom: 0.4px solid #867b7b;
+}
+.FooterCopy {
+  color: #867b7b;
+}
