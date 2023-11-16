@@ -18,19 +18,21 @@ function Login() {
             <div className="header">
               <h1>Instagram</h1>
             </div>
-            <div className="form">
-              <InputwithVal
-                id="username"
-                type="text"
-                label="Phone number, username or email address"
-              />
-              <InputwithVal id="password" type="password" label="Password" />
-              <div className=" mt-2">
-                <button className="btn btn-info w-100 text-white ">
-                  Log in
-                </button>
+            <form action="" method="get">
+              <div className="form">
+                <InputwithVal
+                  id="username"
+                  type="text"
+                  label="Phone number, username or email address"
+                />
+                <InputwithVal id="password" type="password" label="Password" />
+                <div className=" mt-2">
+                  <button className="btn btn-info w-100 text-white ">
+                    Log in
+                  </button>
+                </div>
               </div>
-            </div>
+            </form>
             <div className="divBorderOr mt-1 w-100 d-flex align-items-center">
               <span className="border-bottom w-50"></span>
               <span className="or p-4">OR</span>
@@ -54,7 +56,7 @@ function Login() {
             <div className="mt-1">
               <p className="text-center">
                 <a
-                  href=""
+                  href="/password/reset"
                   className="text-decoration-none"
                   style={{ color: "rgb(34, 20, 13)", fontSize: "0.8rem" }}
                 >
