@@ -2,7 +2,7 @@ import React from "react";
 import "./Login.css";
 import instaLoginImage from "@/image/loginImages.jpg";
 import GooglePlay from "@/image/googlePlayBtn.jpg";
-import Microsoft from "@/image/microsoftBtn.jpg";
+import Microsoft from "@/image/MicrosoftBtn.jpg";
 import LoginFooter from "../LoginFooter/LoginFooter";
 import InputwithVal from "../InputwithVal/InputwithVal";
 
