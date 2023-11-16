@@ -52,6 +52,13 @@
 .item-end {
   margin-left: 1.2rem;
 }
+.itemNotification {
+  display: none;
+}
+.itemNotification > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 @media screen and (max-width: 1260px) {
   .sidenav {
     width: 80px;
@@ -67,6 +74,69 @@
     display: none;
   }
   .headerHome > img {
+    display: block;
+  }
+}
+@media screen and (max-width: 780px) {
+  .headerHome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 0.2px solid #e0e0e0;
+    width: 100%;
+    margin: 0 0.5rem;
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sidenav {
+    border-right: none;
+  }
+  .headerHome > p {
+    display: block;
+  }
+  .headerHome > img {
+    display: none;
+  }
+  .sidenav {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .navbarItems {
+    margin-top: 90vh;
+    margin-left: 0;
+    border-top: 0.2px solid #e0e0e0;
+    padding-top: 10px;
+    height: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .item-end {
+    display: none;
+  }
+  .item:hover {
+    background-color: white;
+  }
+  .item1 {
+    display: none;
+  }
+  .itemOrder2 {
+    order: 1;
+  }
+  .itemOrder1 {
+    order: 2;
+  }
+  .itemOrder3 {
+    order: 4;
+  }
+  .itemNotification {
     display: block;
   }
 }

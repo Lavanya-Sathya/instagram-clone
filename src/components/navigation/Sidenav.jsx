@@ -17,6 +17,14 @@ function Sidenav() {
       <a className="headerHome" href="/Home">
         <img src={InstagramIcon} alt="InstagramIcon" />
         <p className="h3">Instagram</p>
+        <div className="d-flex gap-4">
+          <a className="itemNotification" href="">
+            <img src={NotificationIcon} alt="NotificationIcon" />
+          </a>
+          <a className="itemNotification" href="">
+            <img src={MessageIcon} alt="MessageIcon" />
+          </a>
+        </div>
       </a>
       <div className="navbarItems">
         <a className="item" href="">
@@ -27,27 +35,27 @@ function Sidenav() {
           <img src={SearchIcon} alt="SearchIcon" />
           <p className="text-dark m-0">Search</p>
         </a>
-        <a className="item" href="">
+        <a className="item item1" href="">
           <img src={ExploreIcon} alt="ExploreIcon" />
           <p className="text-dark m-0">Explore</p>
         </a>
-        <a className="item" href="">
+        <a className="item itemOrder1" href="">
           <img src={ReelsIcon} alt="ReelsIcon" />
           <p className="text-dark m-0">Reels</p>
         </a>
-        <a className="item" href="">
+        <a className="item item1" href="">
           <img src={MessageIcon} alt="MessageIcon" />
           <p className="text-dark m-0">Messages</p>
         </a>
-        <a className="item" href="">
+        <a className="item item1" href="">
           <img src={NotificationIcon} alt="NotificationIcon" />
           <p className="text-dark m-0">Notifications</p>
         </a>
-        <a className="item" href="">
+        <a className="item itemOrder2" href="">
           <img src={CreateIcon} alt="CreateIcon" />
           <p className="text-dark m-0">Create</p>
         </a>
-        <a className="item" href="">
+        <a className="item itemOrder3" href="">
           <img src={ProfileIcon} alt="ProfileIcon" />
           <p className="text-dark m-0">Profile</p>
         </a>
