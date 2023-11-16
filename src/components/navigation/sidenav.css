@@ -109,6 +109,7 @@
   }
   .headerHome > p {
     display: block;
+    padding-left: 0;
   }
   .headerHome > img {
     display: none;

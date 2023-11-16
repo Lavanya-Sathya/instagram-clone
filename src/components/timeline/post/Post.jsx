@@ -21,7 +21,7 @@ function Post() {
   };
   return (
     <div className="post mb-4 pb-3 border-bottom">
-      <div className="postHeader d-flex justify-content-between align-items-center mb-3">
+      <div className="postHeader d-flex justify-content-between align-items-center mb-1 p-2">
         <div className="postHeaderAuthor d-flex gap-2 align-items-center">
           <img
             src={userIcon}
@@ -42,7 +42,7 @@ function Post() {
           className="w-100"
         />
       </div>
-      <div className="postFooter h4 mt-2 d-flex justify-content-between">
+      <div className="postFooter h4 d-flex justify-content-between p-2">
         <div className="postFooterIcons d-flex gap-2">
           <i className="bi bi-heart" onClick={(e) => handleHeart(e)}></i>
           <i className="bi bi-chat"></i>
