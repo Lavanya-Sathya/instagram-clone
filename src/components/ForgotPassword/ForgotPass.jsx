@@ -1,7 +1,7 @@
 import React from "react";
 import "./ForgotPass.css";
 import InputwithVal from "../InputwithVal/InputwithVal";
-import forgotlock from "@/image/ForgotPass.jpg";
+import forgotlock from "@/image/forgotPass.jpg";
 import LoginFooter from "../LoginFooter/LoginFooter";
 function ForgotPass() {
   return (
