@@ -11,5 +11,8 @@ export default defineConfig({
       transformMixedEsModules: true,
       // include: [/linked-dep/, /node_modules/],
     },
+    build: {
+      assetsInlineLimit: 0,
+    },
   },
 });

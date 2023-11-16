@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import instaLoginImage from "../../images/loginImages.png";
+import instaLoginImage from "../../images/loginImages.PNG";
 import GooglePlay from "../../images/googlePlayBtn.png";
 import Microsoft from "../../images/microsoftBtn.png";
 import LoginFooter from "../LoginFooter/LoginFooter";
