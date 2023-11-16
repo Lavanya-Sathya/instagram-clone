@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" dex element={<Login />} />
+        <Route path="/" index element={<Login />} />
         <Route path="/emailsignup" element={<Register />} />
         <Route path="/password/reset" element={<ForgotPass />} />
         <Route path="/home" element={<Homepage />} />

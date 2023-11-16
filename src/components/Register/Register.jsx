@@ -21,7 +21,7 @@ const Register = () => {
             </div>
             <div className="facebookRegister d-flex justify-content-center align-items-center gap-2">
               <span className="h4 mr-2">
-                <i className="bi bi-facebook"></i>
+                <i className="bi bi-facebook" style={{ color: "white" }}></i>
               </span>
               <p className="h5">
                 <a
