@@ -1,8 +1,8 @@
 import React from "react";
 import "./Register.css";
 import InputwithVal from "../InputwithVal/InputwithVal";
-import GooglePlay from "../../images/googlePlayBtn.jpg";
-import Microsoft from "../../images/microsoftBtn.jpg";
+import GooglePlay from "@/image/googlePlayBtn.jpg";
+import Microsoft from "@/image/microsoftBtn.jpg";
 import LoginFooter from "../LoginFooter/LoginFooter";
 const Register = () => {
   return (

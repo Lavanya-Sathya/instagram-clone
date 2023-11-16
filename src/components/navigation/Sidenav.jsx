@@ -1,15 +1,15 @@
 import React from "react";
 import "./sidenav.css";
-import HomeIcon from "../../images/insta_icons/home_light.png";
-import SearchIcon from "../../images/insta_icons/search_light.png";
-import ExploreIcon from "../../images/insta_icons/explore_light.png";
-import ReelsIcon from "../../images/insta_icons/reels_light.png";
-import MessageIcon from "../../images/insta_icons/messages_light.png";
-import NotificationIcon from "../../images/insta_icons/notification_light.png";
-import CreateIcon from "../../images/insta_icons/create_light.png";
-import ProfileIcon from "../../images/insta_icons/user_profile.png";
-import MoreIcon from "../../images/insta_icons/more_light.png";
-import InstagramIcon from "../../images/insta_icons/instagram_icon.png";
+import HomeIcon from "@/image/insta_icons/home_light.png";
+import SearchIcon from "@/image/insta_icons/search_light.png";
+import ExploreIcon from "@/image/insta_icons/explore_light.png";
+import ReelsIcon from "@/image/insta_icons/reels_light.png";
+import MessageIcon from "@/image/insta_icons/messages_light.png";
+import NotificationIcon from "@/image/insta_icons/notification_light.png";
+import CreateIcon from "@/image/insta_icons/create_light.png";
+import ProfileIcon from "@/image/insta_icons/user_profile.png";
+import MoreIcon from "@/image/insta_icons/more_light.png";
+import InstagramIcon from "@/image/insta_icons/instagram_icon.png";
 
 function Sidenav() {
   return (

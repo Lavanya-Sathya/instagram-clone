@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./post.css";
-import userIcon from "../../../images/insta_icons/user_profile.png";
+import userIcon from "@/image/insta_icons/user_profile.png";
 function Post() {
   const [colorHeart, setcolorHeart] = useState(false);
   const [savePost, setsavePost] = useState(false);
