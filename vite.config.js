@@ -7,12 +7,11 @@ export default defineConfig({
     // include: ['linked-dep'],
   },
   build: {
-    commonjsOptions: {
-      transformMixedEsModules: true,
-      // include: [/linked-dep/, /node_modules/],
-    },
-    build: {
-      assetsInlineLimit: 0,
+    assetsInlineLimit: 0,
+    rollupOptions: {
+      output: {
+        manualChunks: () => "everything.js",
+      },
     },
   },
 });
