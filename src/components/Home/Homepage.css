@@ -7,15 +7,22 @@ body {
   display: flex;
   flex-direction: row;
 }
-.homepage__nav {
+.homepageNav {
   flex: 0.2;
-  /* width: 20%;
-  border-right: 1px solid black;
-  height: 100%;
-  margin-right: 30px; */
-  /* position: absolute; */
 }
-.homepage__timeline {
+@media screen and (max-width: 1260px) {
+  .homepageNav {
+    flex: 0.1;
+  }
+}
+.homepageTimeline {
   flex: 0.8;
-  /* width: 80%; */
+}
+@media screen and (max-width: 780px) {
+  .homepageNav {
+    flex: 0;
+  }
+}
+.homepageTimeline {
+  flex: 1;
 }
