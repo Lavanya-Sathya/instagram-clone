@@ -1,0 +1,14 @@
+.sugImgName > img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.btnSugFollow {
+  border: none;
+  background-color: white;
+  color: rgb(102, 156, 177);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.btnSugFollow:hover {
+  color: darkblue;
+}

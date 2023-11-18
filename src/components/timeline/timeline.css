@@ -12,6 +12,18 @@
 }
 .timelineRight {
   flex: 0.3;
+  margin-right: 3rem;
+}
+.sugesstionTime > p {
+  color: rgb(124, 120, 120);
+}
+.sugesstionTime > a {
+  color: rgb(17, 17, 17);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.sugesstionTime > a:hover {
+  color: rgb(124, 120, 120);
 }
 @media screen and (max-width: 1260px) {
   .timelineRight {
