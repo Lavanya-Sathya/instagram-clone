@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./sidenav.css";
 import HomeIcon from "@/image/insta_icons/home_light.png";
 import SearchIcon from "@/image/insta_icons/search_light.png";
@@ -10,8 +10,19 @@ import CreateIcon from "@/image/insta_icons/create_light.png";
 import ProfileIcon from "@/image/insta_icons/user_profile.png";
 import MoreIcon from "@/image/insta_icons/more_light.png";
 import InstagramIcon from "@/image/insta_icons/instagram_icon.png";
+import { useNavigate } from "react-router-dom";
 
 function Sidenav() {
+  const navigate = useNavigate();
+  const [moreClick, setMoreClick] = useState(false);
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    const confirmLogOut = confirm("Are you sure you want to Log Out?");
+    if (confirmLogOut) {
+      sessionStorage.removeItem("user");
+      navigate("/");
+    }
+  };
   return (
     <div className="sidenav">
       <a className="headerHome" href="/Home">
@@ -60,10 +71,47 @@ function Sidenav() {
           <p className="text-dark m-0">Profile</p>
         </a>
       </div>
-      <div className="item item-end">
+      <div className="item item-end" onClick={() => setMoreClick(!moreClick)}>
         <img src={MoreIcon} alt="MoreIcon" />
         <p className="text-dark m-0">More</p>
       </div>
+      {moreClick && (
+        <div className="moreComp">
+          <a className="item" href="">
+            <i class="bi bi-gear-wide"></i>
+            <span className="text-dark m-0">Setting</span>
+          </a>
+          <a className="item item1" href="">
+            <i class="bi bi-activity"></i>
+            <span className="text-dark m-0">Your Activity</span>
+          </a>
+          <a className="item itemOrder1" href="">
+            <i className="bi bi-bookmark"></i>
+            <span className="text-dark m-0">Saved</span>
+          </a>
+          <a className="item item1" href="">
+            <i class="bi bi-brightness-high"></i>
+            <span className="text-dark m-0">Switch appearance</span>
+          </a>
+          <a className="item item1 mb-2" href="">
+            <i class="bi bi-exclamation-octagon"></i>
+            <span className="text-dark m-0">Report a problem</span>
+          </a>
+          <p className="divisionMore"></p>
+          <a className="item item1" href="">
+            <i class="bi bi-at"></i>
+            <span className="text-dark m-0">Threads</span>
+          </a>
+          <p className="divisionMore"></p>
+
+          <a className="item item1" href="">
+            <span className="text-dark m-0">Switch accounts</span>
+          </a>
+          <a className="item item1 border-top" href="" onClick={handleLogOut}>
+            <span className="text-dark m-0">Log out</span>
+          </a>
+        </div>
+      )}
     </div>
   );
 }

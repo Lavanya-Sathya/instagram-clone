@@ -20,7 +20,7 @@ function Post({ user, postImage, likes, timestamp, caption }) {
     setsavePost(!savePost);
   };
   const handleAddComment = (e) => {
-    setAddComment(!!e.target.trim());
+    setAddComment(!!e.target);
   };
   return (
     <div className="post mb-2 pb-3 border-bottom">
@@ -50,18 +50,21 @@ function Post({ user, postImage, likes, timestamp, caption }) {
           </div>
           <i className="bi bi-bookmark" onClick={(e) => handleSavePost(e)}></i>
         </div>
-        <div className="postLikeUser" style={{ paddingLeft: "0.3rem" }}>
+        <div className="postLikeUser" style={{ paddingLeft: "0.6rem" }}>
           <p className="mb-0 h6">{likes} likes</p>
           <div className="caption">
-            <span className=" pt-1" style={{ fontWeight: 600 }}>
-              {user}{" "}
+            <span className=" pt-1">
+              <strong>{user}</strong>{" "}
             </span>
             <span className="pt-1" style={{ fontSize: "0.9rem" }}>
               {caption}
             </span>
           </div>
         </div>
-        <div className="postComment d-flex align-items-center justify-content-between">
+        <div
+          className="postComment d-flex align-items-center justify-content-between"
+          style={{ paddingLeft: "0.6rem" }}
+        >
           <textarea
             name="comment"
             id="comment"
@@ -69,7 +72,7 @@ function Post({ user, postImage, likes, timestamp, caption }) {
             rows="1"
             className="postAddComment"
             placeholder="Add a comment..."
-            onChange={(e) => handleAddComment(e)}
+            onKeyUp={(e) => handleAddComment(e)}
           ></textarea>
           <div className="d-flex align-items-center">
             <button

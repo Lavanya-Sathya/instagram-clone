@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Register.css";
 import InputwithVal from "../InputwithVal/InputwithVal";
 import GooglePlay from "@/image/googlePlayBtn.jpg";
 import Microsoft from "@/image/MicrosoftBtn.jpg";
 import LoginFooter from "../LoginFooter/LoginFooter";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
 const Register = () => {
+  const navigate = useNavigate();
+  const [fname, setFName] = useState("");
+  const [username, setusername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handlesignUp = (event) => {
+    event.preventDefault();
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert("Signed up");
+        navigate("/");
+        setFName("");
+        setEmail("");
+        setPassword("");
+        setusername("");
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // ..
+        alert(error.message);
+      });
+  };
   return (
     <>
       <div className="registerContainer m-2 d-flex justify-content-center">
@@ -44,10 +72,30 @@ const Register = () => {
                 id="email"
                 type="email"
                 label="Mobile number or email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <InputwithVal id="name" type="text" label="Full Name" />
-              <InputwithVal id="username" type="text" label="Username" />
-              <InputwithVal id="password" type="password" label="Password" />
+              <InputwithVal
+                id="name"
+                type="text"
+                label="Full Name"
+                value={fname}
+                onChange={(e) => setFName(e.target.value)}
+              />
+              <InputwithVal
+                id="username"
+                type="text"
+                label="Username"
+                value={username}
+                onChange={(e) => setusername(e.target.value)}
+              />
+              <InputwithVal
+                id="password"
+                type="password"
+                label="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <div className="signupText m-3">
                 People who use our service may have uploaded your contact
                 information to Instagram. Learn more
@@ -57,7 +105,10 @@ const Register = () => {
                 Cookies Policy.
               </div>
               <div className=" mt-2 mb-3">
-                <button className="btn btn-info w-100 text-white ">
+                <button
+                  className="btn btn-info w-100 text-white "
+                  onClick={handlesignUp}
+                >
                   Sign Up
                 </button>
               </div>

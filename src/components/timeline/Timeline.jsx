@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./timeline.css";
 import Sugesstions from "./Sugesstions";
 import Post from "./post/Post";
@@ -6,54 +6,51 @@ import post1 from "@/image/post/post1.jpg";
 import post2 from "@/image/post/post2.jpg";
 import post3 from "@/image/post/post3.jpg";
 import post4 from "@/image/post/post4.jpg";
-
+import { db } from "../Firebase/Firebase";
+import { useNavigate } from "react-router-dom";
+import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
 function Timeline() {
-  <div></div>;
-  const [posts, setPosts] = useState([
-    {
-      user: "escapeTime",
-      postImage: post1,
-      likes: 12,
-      timestamp: "2d",
-      caption: "Photography for life",
-    },
-    {
-      user: "john",
-      postImage: post2,
-      likes: 134,
-      timestamp: "1d",
-      caption:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. In, odio",
-    },
-    {
-      user: "sathya_",
-      postImage: post3,
-      likes: 98,
-      timestamp: "12h",
-
-      caption:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis exercitationem delectus saepe doloribus odio similique minima quidem alias voluptate adipisci?",
-    },
-    {
-      user: "kenny",
-      postImage: post4,
-      likes: 189,
-      timestamp: "2h",
-      caption: "Lorem ipsum dolor sit amet.",
-    },
-  ]);
+  const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const userId = JSON.parse(sessionStorage.getItem("user"));
+    if (!userId) {
+      alert("Session Expired.Please Log in again to continue");
+      navigate("/");
+    }
+    const fetchData = async () => {
+      try {
+        // const q = query(collection(db, "posts"));
+        const snapshot = await onSnapshot(
+          query(collection(db, "posts")),
+          (querySnapshot) => {
+            const postsArray = [];
+            querySnapshot.forEach((doc) => {
+              postsArray.push({ id: doc.id, data: doc.data() });
+            });
+            setPosts(postsArray);
+          }
+        );
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div className="timeline">
       <div className="timelineLeft mt-1">
         <div className="postTimeline mb-5">
           {posts.map((post) => (
             <Post
-              key={post.user}
-              user={post.user}
-              postImage={post.postImage}
-              likes={post.likes}
-              timestamp={post.timestamp}
-              caption={post.caption}
+              key={post.id}
+              user={post.data.user}
+              postImage={post.data.postImage}
+              likes={post.data.likes}
+              timestamp={post.data.timestamp}
+              caption={post.data.caption}
             />
           ))}
         </div>

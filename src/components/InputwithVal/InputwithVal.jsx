@@ -1,15 +1,23 @@
 import React from "react";
 import { useState } from "react";
 import "./inputwithVal.css";
-function InputwithVal({ id, label, type = "text" }) {
+function InputwithVal({ id, label, value, onChange, type = "text" }) {
   const [focused, setFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
+  const [showPass, setShowpass] = useState(false);
   const handleFocus = () => {
     setFocused(true);
   };
   const handleBlur = (e) => {
     setFocused(false);
     setHasValue(!!e.target.value);
+  };
+  const handleChange = (e) => {
+    setHasValue(!!e.target.value);
+    onChange && onChange(e);
+  };
+  const handleShowClick = (e) => {
+    setShowpass(!showPass);
   };
   return (
     <div className="form-group mt-2">
@@ -30,13 +38,19 @@ function InputwithVal({ id, label, type = "text" }) {
       </label>
       <input
         className="form-control"
-        type={type}
+        type={type === "password" ? (showPass ? "text" : type) : type}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        onChange={(e) => setHasValue(!!e.target.value)}
+        onChange={handleChange}
         id={id}
         name={id}
+        value={value}
       />
+      {type === "password" && (
+        <button className="ShowButton" onClick={(e) => handleShowClick(e)}>
+          {showPass ? "Hide" : "Show"}
+        </button>
+      )}
     </div>
   );
 }

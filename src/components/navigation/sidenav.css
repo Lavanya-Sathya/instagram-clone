@@ -63,6 +63,22 @@
   width: 1.5rem;
   height: 1.5rem;
 }
+.moreComp {
+  position: absolute;
+  background-color: rgb(250, 250, 245);
+  z-index: 3;
+  width: 17rem;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  border-radius: 1rem;
+  padding: 0.9rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.divisionMore {
+  border: 4px solid #e0e0e0;
+  margin: 0;
+}
 @media screen and (max-width: 1260px) {
   .sidenav {
     width: 80px;
