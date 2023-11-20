@@ -29,7 +29,8 @@
   display: flex;
   flex-direction: column;
 }
-.item {
+.item,
+.itemM {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -40,6 +41,9 @@
   cursor: pointer;
   font-size: 1.1rem;
   text-decoration: none;
+}
+.itemM {
+  padding: 0.6rem 0;
 }
 .item > img {
   width: 1.5rem;

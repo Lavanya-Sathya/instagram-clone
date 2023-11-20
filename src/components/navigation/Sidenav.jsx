@@ -77,37 +77,37 @@ function Sidenav() {
       </div>
       {moreClick && (
         <div className="moreComp">
-          <a className="item" href="">
+          <a className="itemM" href="">
             <i class="bi bi-gear-wide"></i>
             <span className="text-dark m-0">Setting</span>
           </a>
-          <a className="item item1" href="">
+          <a className="itemM" href="">
             <i class="bi bi-activity"></i>
             <span className="text-dark m-0">Your Activity</span>
           </a>
-          <a className="item itemOrder1" href="">
+          <a className="itemM" href="">
             <i className="bi bi-bookmark"></i>
             <span className="text-dark m-0">Saved</span>
           </a>
-          <a className="item item1" href="">
+          <a className="itemM" href="">
             <i class="bi bi-brightness-high"></i>
             <span className="text-dark m-0">Switch appearance</span>
           </a>
-          <a className="item item1 mb-2" href="">
+          <a className="itemM mb-2" href="">
             <i class="bi bi-exclamation-octagon"></i>
             <span className="text-dark m-0">Report a problem</span>
           </a>
           <p className="divisionMore"></p>
-          <a className="item item1" href="">
+          <a className="itemM" href="">
             <i class="bi bi-at"></i>
             <span className="text-dark m-0">Threads</span>
           </a>
           <p className="divisionMore"></p>
 
-          <a className="item item1" href="">
+          <a className="itemM" href="">
             <span className="text-dark m-0">Switch accounts</span>
           </a>
-          <a className="item item1 border-top" href="" onClick={handleLogOut}>
+          <a className="item border-top" href="" onClick={handleLogOut}>
             <span className="text-dark m-0">Log out</span>
           </a>
         </div>
