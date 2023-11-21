@@ -4,7 +4,8 @@ import { collection, serverTimestamp, addDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../Firebase/Firebase";
 
-function ImageUpload() {
+function ImageUpload({ user }) {
+  const userProfile = user?.data?.username;
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
 
@@ -35,7 +36,7 @@ function ImageUpload() {
           timestamp: serverTimestamp(),
           caption: caption,
           postImage: url,
-          user: "escapeTime",
+          user: userProfile,
         });
 
         setImage(null);

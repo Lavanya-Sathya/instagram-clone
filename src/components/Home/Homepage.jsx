@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../Firebase/Firebase";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
+import Profile from "../timeline/Profile/Profile";
 function Homepage() {
   const [user, setUser] = useState("");
   const navigate = useNavigate();
@@ -22,12 +23,12 @@ function Homepage() {
         const snapshot = await onSnapshot(
           query(collection(db, "users"), where("uid", "==", userId)),
           (querySnapshot) => {
-            const postsArray = [];
+            // const postsArray = [];
             querySnapshot.forEach((doc) => {
               // console.log(doc.id, " => ", doc.data());
-              postsArray.push({ id: doc.id, data: doc.data() });
+              setUser({ id: doc.id, data: doc.data() });
             });
-            setUser(postsArray);
+            // setUser(postsArray);
           }
         );
       } catch (error) {
@@ -44,7 +45,8 @@ function Homepage() {
       <div className="homepageTimeline">
         <Routes>
           <Route path="/" element={<Timeline />} />
-          <Route path="/image-upload" element={<ImageUpload />} />
+          <Route path="/image-upload" element={<ImageUpload user={user} />} />
+          <Route path="/userprofile" element={<Profile user={user} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
