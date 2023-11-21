@@ -5,13 +5,16 @@ function Profile({ user }) {
   return (
     <div className="profileContainer">
       <div className="userDetailsCont">
-        <img src={userProfile} alt="profile" className="profileImg" />
+        <div className="imgUserNameCon">
+          <img src={userProfile} alt="profile" className="profileImg" />
+          <span className="mobileUserName">{user?.data?.FullName}</span>
+        </div>
         <div className="userProfileDiv">
           <div className="userProfileSubDiv1">
             <span className="h4">{user?.data?.username}</span>
-            <button className="btnEditView">Edit Profile</button>
-            <button className="btnEditView">View archive</button>
-            <i class="bi bi-gear-wide"></i>
+            <button className="btnEditView btntoggle">Edit Profile</button>
+            <button className="btnEditView btntoggle">View archive</button>
+            <i class="bi bi-gear-wide btntoggle"></i>
           </div>
           <div className="userProfileSubDiv2">
             <span>
@@ -24,8 +27,13 @@ function Profile({ user }) {
               <strong>0</strong> Following
             </span>
           </div>
-          <span>{user?.data?.FullName}</span>
+          <span className="webUserName">{user?.data?.FullName}</span>
         </div>
+      </div>
+      <div className="mobileResProfile">
+        <button className="btnEditView btntoggle1">Edit Profile</button>
+        <button className="btnEditView btntoggle1">View archive</button>
+        <i class="bi bi-gear-wide "></i>
       </div>
       <div className="userDetailsCont2"></div>
     </div>

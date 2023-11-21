@@ -1,6 +1,7 @@
 .profileContainer {
   margin: 2rem;
 }
+/* User display flex box */
 .userDetailsCont {
   display: flex;
   flex-direction: row;
@@ -12,6 +13,20 @@
   border-radius: 8rem;
   width: 220px;
   height: 220px;
+}
+.imgUserNameCon {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+/* User display control  for mobile and website */
+.webUserName {
+  display: block;
+}
+.mobileUserName {
+  display: none;
 }
 .userProfileDiv {
   margin-top: 1.5rem;
@@ -39,4 +54,46 @@ span {
 }
 .userDetailsCont2 {
   border-top: 2px solid #e0e0e0;
+}
+.mobileResProfile {
+  display: none;
+}
+.btntoggle1 {
+  padding: 0.5rem 3rem;
+}
+@media screen and (max-width: 1000px) {
+  .userDetailsCont {
+    margin-left: 0rem;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 780px) {
+  .userDetailsCont {
+    margin-top: 4.1rem;
+    margin-bottom: 2rem;
+  }
+  .profileImg {
+    width: 150px;
+    height: 150px;
+  }
+  .userProfileDiv {
+    margin-top: 1rem;
+  }
+  .btntoggle {
+    display: none;
+  }
+  .mobileResProfile {
+    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+  }
+  .webUserName {
+    display: none;
+  }
+  .mobileUserName {
+    display: block;
+  }
 }
