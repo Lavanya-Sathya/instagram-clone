@@ -76,9 +76,12 @@ span {
     margin-bottom: 2rem;
     gap: 1rem;
   }
+  span {
+    font-size: 0.9rem;
+  }
   .profileImg {
-    width: 115px;
-    height: 115px;
+    width: 98px;
+    height: 98px;
   }
   .userProfileDiv {
     margin-top: 1rem;
