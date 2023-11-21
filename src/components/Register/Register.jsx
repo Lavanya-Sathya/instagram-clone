@@ -5,7 +5,7 @@ import GooglePlay from "@/image/googlePlayBtn.jpg";
 import Microsoft from "@/image/MicrosoftBtn.jpg";
 import LoginFooter from "../LoginFooter/LoginFooter";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,8 +18,8 @@ const Register = () => {
     event.preventDefault();
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        alert("Signed up");
+      .then(() => {
+        alert("Signed up successfully");
         navigate("/");
         setFName("");
         setEmail("");
@@ -52,14 +52,14 @@ const Register = () => {
                 <i className="bi bi-facebook" style={{ color: "white" }}></i>
               </span>
               <p className="h5">
-                <a
+                <Link
                   target="_blank"
-                  href="https://www.facebook.com/"
+                  to="https://www.facebook.com/"
                   className="text-decoration-none"
                   style={{ color: "rgb(255, 255, 255)", fontSize: "1rem" }}
                 >
                   Log in with Facebook
-                </a>
+                </Link>
               </p>
             </div>
             <div className="divBorderOr mt-1 w-100 d-flex align-items-center">
@@ -116,25 +116,25 @@ const Register = () => {
           </div>
           <div className="RegisterSign mt-2 pt-3 pb-3 text-center ">
             Have an account?{" "}
-            <a href="/" className="text-decoration-none h6 text-info">
+            <Link to="/" className="text-decoration-none h6 text-info">
               Log in
-            </a>
+            </Link>
           </div>
           <div className="loginHelp mt-2">
             <p className="text-center">Get the App</p>
             <div className="d-flex justify-content-center gap-3 flex-wrap">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.instagram.android"
+              <Link
+                to="https://play.google.com/store/apps/details?id=com.instagram.android"
                 target="_blank"
               >
                 <img src={GooglePlay} alt="Get it on Google play" />
-              </a>
-              <a
-                href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1366%2C728"
+              </Link>
+              <Link
+                to="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1366%2C728"
                 target="_blank"
               >
                 <img src={Microsoft} alt="Get it on Microsoft" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

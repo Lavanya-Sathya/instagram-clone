@@ -10,7 +10,7 @@ import CreateIcon from "@/image/insta_icons/create_light.png";
 import ProfileIcon from "@/image/insta_icons/user_profile.png";
 import MoreIcon from "@/image/insta_icons/more_light.png";
 import InstagramIcon from "@/image/insta_icons/instagram_icon.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Sidenav() {
   const navigate = useNavigate();
@@ -19,57 +19,57 @@ function Sidenav() {
     e.preventDefault();
     const confirmLogOut = confirm("Are you sure you want to Log Out?");
     if (confirmLogOut) {
-      sessionStorage.removeItem("user");
+      sessionStorage.removeItem("Token");
       navigate("/");
     }
   };
   return (
     <div className="sidenav">
-      <a className="headerHome" href="/Home">
+      <Link className="headerHome" to="/home">
         <img src={InstagramIcon} alt="InstagramIcon" />
         <p className="h3">Instagram</p>
         <div className="d-flex gap-4">
-          <a className="itemNotification" href="">
+          <Link className="itemNotification" to="">
             <img src={NotificationIcon} alt="NotificationIcon" />
-          </a>
-          <a className="itemNotification" href="">
+          </Link>
+          <Link className="itemNotification" to="">
             <img src={MessageIcon} alt="MessageIcon" />
-          </a>
+          </Link>
         </div>
-      </a>
+      </Link>
       <div className="navbarItems">
-        <a className="item" href="">
+        <Link className="item" to="/Home">
           <img src={HomeIcon} alt="home" />
           <p className="text-dark m-0">Home</p>
-        </a>
-        <a className="item" href="">
+        </Link>
+        <Link className="item" to="/">
           <img src={SearchIcon} alt="SearchIcon" />
           <p className="text-dark m-0">Search</p>
-        </a>
-        <a className="item item1" href="">
+        </Link>
+        <Link className="item item1" to="">
           <img src={ExploreIcon} alt="ExploreIcon" />
           <p className="text-dark m-0">Explore</p>
-        </a>
-        <a className="item itemOrder1" href="">
+        </Link>
+        <Link className="item itemOrder1" to="">
           <img src={ReelsIcon} alt="ReelsIcon" />
           <p className="text-dark m-0">Reels</p>
-        </a>
-        <a className="item item1" href="">
+        </Link>
+        <Link className="item item1" to="">
           <img src={MessageIcon} alt="MessageIcon" />
           <p className="text-dark m-0">Messages</p>
-        </a>
-        <a className="item item1" href="">
+        </Link>
+        <Link className="item item1" to="">
           <img src={NotificationIcon} alt="NotificationIcon" />
           <p className="text-dark m-0">Notifications</p>
-        </a>
-        <a className="item itemOrder2" href="">
+        </Link>
+        <Link className="item itemOrder2" to="/home/image-upload">
           <img src={CreateIcon} alt="CreateIcon" />
           <p className="text-dark m-0">Create</p>
-        </a>
-        <a className="item itemOrder3" href="">
+        </Link>
+        <Link className="item itemOrder3" to="">
           <img src={ProfileIcon} alt="ProfileIcon" />
           <p className="text-dark m-0">Profile</p>
-        </a>
+        </Link>
       </div>
       <div className="item item-end" onClick={() => setMoreClick(!moreClick)}>
         <img src={MoreIcon} alt="MoreIcon" />
@@ -77,39 +77,39 @@ function Sidenav() {
       </div>
       {moreClick && (
         <div className="moreComp">
-          <a className="itemM" href="">
+          <Link className="itemM" to="">
             <i class="bi bi-gear-wide"></i>
             <span className="text-dark m-0">Setting</span>
-          </a>
-          <a className="itemM" href="">
+          </Link>
+          <Link className="itemM" to="">
             <i class="bi bi-activity"></i>
             <span className="text-dark m-0">Your Activity</span>
-          </a>
-          <a className="itemM" href="">
+          </Link>
+          <Link className="itemM" to="">
             <i className="bi bi-bookmark"></i>
             <span className="text-dark m-0">Saved</span>
-          </a>
-          <a className="itemM" href="">
+          </Link>
+          <Link className="itemM" to="">
             <i class="bi bi-brightness-high"></i>
             <span className="text-dark m-0">Switch appearance</span>
-          </a>
-          <a className="itemM mb-2" href="">
+          </Link>
+          <Link className="itemM mb-2" to="">
             <i class="bi bi-exclamation-octagon"></i>
             <span className="text-dark m-0">Report a problem</span>
-          </a>
+          </Link>
           <p className="divisionMore"></p>
-          <a className="itemM" href="">
+          <Link className="itemM" to="">
             <i class="bi bi-at"></i>
             <span className="text-dark m-0">Threads</span>
-          </a>
+          </Link>
           <p className="divisionMore"></p>
 
-          <a className="itemM" href="">
+          <Link className="itemM" to="">
             <span className="text-dark m-0">Switch accounts</span>
-          </a>
-          <a className="item border-top" href="" onClick={handleLogOut}>
+          </Link>
+          <Link className="item border-top" to="" onClick={handleLogOut}>
             <span className="text-dark m-0">Log out</span>
-          </a>
+          </Link>
         </div>
       )}
     </div>

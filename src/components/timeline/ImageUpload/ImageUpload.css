@@ -1,0 +1,23 @@
+.ImageUploadContainer {
+  margin: 4rem 0.7rem;
+  text-align: center;
+}
+.ImagePost {
+  width: 50%;
+  margin: 1rem auto;
+}
+@media screen and (max-width: 500px) {
+  .ImagePost {
+    width: 75%;
+  }
+}
+.ImageUploadBtn {
+  margin: 0.5rem;
+  width: 40%;
+  padding: 5px;
+  border-radius: 4px;
+}
+.ImageUploadBtn:hover {
+  font-weight: 600;
+  border: 1px;
+}

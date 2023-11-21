@@ -3,6 +3,7 @@ import "./ForgotPass.css";
 import InputwithVal from "../InputwithVal/InputwithVal";
 import forgotlock from "@/image/forgotPass.jpg";
 import LoginFooter from "../LoginFooter/LoginFooter";
+import { Link } from "react-router-dom";
 function ForgotPass() {
   return (
     <>
@@ -31,13 +32,13 @@ function ForgotPass() {
               </button>
             </div>
             <div className="mt-1 text-center ">
-              <a
-                href="https://help.instagram.com/374546259294234"
+              <Link
+                to="https://help.instagram.com/374546259294234"
                 className="text-decoration-none "
                 style={{ fontSize: "0.8rem", color: "darkblue" }}
               >
                 Can't reset your password?
-              </a>
+              </Link>
             </div>
           </div>
           <div className="divBorderOr mt-1 w-100 d-flex align-items-center">
@@ -46,23 +47,23 @@ function ForgotPass() {
             <span className="border-bottom w-50"></span>
           </div>
           <div className="text-center mb-5">
-            <a
-              href="/emailsignup"
+            <Link
+              to="/emailsignup"
               className="text-decoration-none"
               style={{ color: "rgb(34, 20, 13)", fontSize: "0.8rem" }}
             >
               <p className="h6">Create New Account</p>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="loginPass">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="text-decoration-none"
             style={{ color: "rgb(34, 20, 13)", fontSize: "0.8rem" }}
           >
             <p className="h6">Back to Login</p>
-          </a>
+          </Link>
         </div>
       </div>
       <LoginFooter />

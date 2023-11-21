@@ -2,29 +2,25 @@ import { useState, useEffect } from "react";
 import "./timeline.css";
 import Sugesstions from "./Sugesstions";
 import Post from "./post/Post";
-import post1 from "@/image/post/post1.jpg";
-import post2 from "@/image/post/post2.jpg";
-import post3 from "@/image/post/post3.jpg";
-import post4 from "@/image/post/post4.jpg";
 import { db } from "../Firebase/Firebase";
-import { useNavigate } from "react-router-dom";
-import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import {
+  collection,
+  getDocs,
+  onSnapshot,
+  query,
+  orderBy,
+} from "firebase/firestore";
 function Timeline() {
-  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
-    const userId = JSON.parse(sessionStorage.getItem("user"));
-    if (!userId) {
-      alert("Session Expired.Please Log in again to continue");
-      navigate("/");
-    }
     const fetchData = async () => {
       try {
         // const q = query(collection(db, "posts"));
         const snapshot = await onSnapshot(
-          query(collection(db, "posts")),
+          query(collection(db, "posts"), orderBy("timestamp", "desc")),
           (querySnapshot) => {
             const postsArray = [];
             querySnapshot.forEach((doc) => {
@@ -58,9 +54,9 @@ function Timeline() {
       <div className="timelineRight">
         <div className="sugesstionTime d-flex align-items-center justify-content-between p-2 mb-3">
           <p className="h6 mb-0">Suggested for you</p>
-          <a href="" className="text-decoration-none">
+          <Link to="" className="text-decoration-none">
             See All
-          </a>
+          </Link>
         </div>
         <Sugesstions />
         <Sugesstions />

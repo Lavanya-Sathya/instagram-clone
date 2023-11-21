@@ -1,10 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { db } from "../../Firebase/Firebase";
 import "./post.css";
 import userIcon from "@/image/insta_icons/user_profile.png";
 function Post({ user, postImage, likes, timestamp, caption }) {
   const [colorHeart, setcolorHeart] = useState(false);
   const [savePost, setsavePost] = useState(false);
   const [addComment, setAddComment] = useState(false);
+  const [timeElapsed, setTimeElapsed] = useState(0);
+  // Timestamp format and update for every 5s
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const now = new Date();
+      const timestampDate = timestamp.toDate();
+      const timeDifference = Math.floor(now - timestampDate);
+      const seconds = Math.floor(timeDifference / 1000);
+      // const minutes = Math.floor(seconds / 60);
+      // const hours = Math.floor(minutes / 60);
+      // const days = Math.floor(hours / 24);
+      // console.log("Time Elapsed: ", {
+      //   seconds,
+      //   minutes,
+      //   hours,
+      //   days,
+      // });
+      setTimeElapsed(seconds);
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, [timestamp]);
+  const formatTime = () => {
+    if (timeElapsed < 60) {
+      return `${timeElapsed}s`;
+    } else if (timeElapsed < 3600) {
+      const minutes = Math.floor(timeElapsed / 60);
+      return `${minutes}m`;
+    } else if (timeElapsed < 86400) {
+      const hours = Math.floor(timeElapsed / 3600);
+      return `${hours}h`;
+    } else {
+      const days = Math.floor(timeElapsed / 86400);
+      return `${days}d`;
+    }
+  };
   const handleHeart = (e) => {
     !colorHeart
       ? ((e.target.style.color = "red"),
@@ -32,7 +68,7 @@ function Post({ user, postImage, likes, timestamp, caption }) {
             style={{ width: "3rem", height: "3rem" }}
           />
           <p className="h6 username mb-0">{user} </p>
-          <span className="spanHeader">• {timestamp}</span>
+          <span className="spanHeader">• {formatTime()}</span>
         </div>
         <span className="h4">
           <i className="bi bi-three-dots"></i>
@@ -51,7 +87,9 @@ function Post({ user, postImage, likes, timestamp, caption }) {
           <i className="bi bi-bookmark" onClick={(e) => handleSavePost(e)}></i>
         </div>
         <div className="postLikeUser" style={{ paddingLeft: "0.6rem" }}>
-          <p className="mb-0 h6">{likes} likes</p>
+          <p className="mb-0 h6">
+            {likes} {likes ? "likes" : ""}
+          </p>
           <div className="caption">
             <span className=" pt-1">
               <strong>{user}</strong>{" "}

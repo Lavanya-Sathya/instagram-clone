@@ -12,7 +12,7 @@ function App() {
         <Route path="/" index element={<Login />} />
         <Route path="/emailsignup" element={<Register />} />
         <Route path="/password/reset" element={<ForgotPass />} />
-        <Route path="/home" element={<Homepage />} />
+        <Route path="/home/*" element={<Homepage />} />
       </Routes>
     </Router>
   );

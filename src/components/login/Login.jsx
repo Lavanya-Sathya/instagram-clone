@@ -10,7 +10,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -26,10 +26,10 @@ function Login() {
         onAuthStateChanged(auth, (user) => {
           if (user) {
             const uid = user.uid;
-            sessionStorage.setItem("user", JSON.stringify(uid));
+            sessionStorage.setItem("Token", JSON.stringify(uid));
           }
         });
-        navigate("/Home");
+        navigate("/home");
       })
       .catch((error) => {
         // const errorCode = error.code;
@@ -83,52 +83,52 @@ function Login() {
                 <i className="bi bi-facebook"></i>
               </span>
               <p className="h5">
-                <a
+                <Link
                   target="_blank"
-                  href="https://www.facebook.com/"
+                  to="https://www.facebook.com/"
                   className="text-decoration-none"
                   style={{ color: "rgb(34, 34, 131)", fontSize: "1rem" }}
                 >
                   Log in with Facebook
-                </a>
+                </Link>
               </p>
             </div>
             <div className="mt-1">
               <p className="text-center">
-                <a
-                  href="/password/reset"
+                <Link
+                  to="/password/reset"
                   className="text-decoration-none"
                   style={{ color: "rgb(34, 20, 13)", fontSize: "0.8rem" }}
                 >
                   Forgotten your password?
-                </a>
+                </Link>
               </p>
             </div>
           </div>
           <div className="logSign mt-2 pt-3 pb-3 text-center ">
             Don't have an account?{" "}
-            <a
-              href="/emailsignup"
+            <Link
+              to="/emailsignup"
               className="text-decoration-none h6 text-info"
             >
               Sign up
-            </a>
+            </Link>
           </div>
           <div className="loginHelp mt-2">
             <p className="text-center">Get the App</p>
             <div className="d-flex justify-content-center gap-3 flex-wrap">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.instagram.android"
+              <Link
+                to="https://play.google.com/store/apps/details?id=com.instagram.android"
                 target="_blank"
               >
                 <img src={GooglePlay} alt="Get it on Google play" />
-              </a>
-              <a
-                href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1366%2C728"
+              </Link>
+              <Link
+                to="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1366%2C728"
                 target="_blank"
               >
                 <img src={Microsoft} alt="Get it on Microsoft" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
