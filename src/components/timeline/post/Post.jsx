@@ -6,6 +6,8 @@ function Post({ user, postImage, likes, timestamp, caption }) {
   const [colorHeart, setcolorHeart] = useState(false);
   const [savePost, setsavePost] = useState(false);
   const [addComment, setAddComment] = useState(false);
+  const [comment, setComment] = useState("");
+
   const [timeElapsed, setTimeElapsed] = useState(0);
   // Timestamp format and update for every 5s
   useEffect(() => {
@@ -57,6 +59,7 @@ function Post({ user, postImage, likes, timestamp, caption }) {
   };
   const handleAddComment = (e) => {
     setAddComment(!!e.target);
+    setComment(e.target.value);
   };
   return (
     <div className="post mb-2 pb-3 border-bottom">
@@ -110,7 +113,8 @@ function Post({ user, postImage, likes, timestamp, caption }) {
             rows="1"
             className="postAddComment"
             placeholder="Add a comment..."
-            onKeyUp={(e) => handleAddComment(e)}
+            value={comment}
+            onChange={(e) => handleAddComment(e)}
           ></textarea>
           <div className="d-flex align-items-center">
             <button

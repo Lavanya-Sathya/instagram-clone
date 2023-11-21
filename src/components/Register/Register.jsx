@@ -6,7 +6,8 @@ import Microsoft from "@/image/MicrosoftBtn.jpg";
 import LoginFooter from "../LoginFooter/LoginFooter";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
-
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../Firebase/Firebase";
 const Register = () => {
   const navigate = useNavigate();
   const [fname, setFName] = useState("");
@@ -18,8 +19,15 @@ const Register = () => {
     event.preventDefault();
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
+      .then((userDetails) => {
         alert("Signed up successfully");
+        const userId = userDetails.user.uid;
+        addDoc(collection(db, "users"), {
+          uid: userId,
+          email: email,
+          FullName: fname,
+          username: username,
+        });
         navigate("/");
         setFName("");
         setEmail("");

@@ -28,7 +28,7 @@ function ImageUpload() {
       })
       .then((url) => {
         // Upload complete
-        alert("Upload complete!");
+        alert("Post Uploaded Successfully!");
 
         // Post information to Firestore
         addDoc(collection(db, "posts"), {
