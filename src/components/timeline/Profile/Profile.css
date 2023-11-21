@@ -59,7 +59,7 @@ span {
   display: none;
 }
 .btntoggle1 {
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 1.6rem;
 }
 @media screen and (max-width: 1000px) {
   .userDetailsCont {
@@ -68,13 +68,17 @@ span {
   }
 }
 @media screen and (max-width: 780px) {
+  .profileContainer {
+    margin: 0.5rem;
+  }
   .userDetailsCont {
     margin-top: 4.1rem;
     margin-bottom: 2rem;
+    gap: 1rem;
   }
   .profileImg {
-    width: 150px;
-    height: 150px;
+    width: 115px;
+    height: 115px;
   }
   .userProfileDiv {
     margin-top: 1rem;
