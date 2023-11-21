@@ -13,7 +13,7 @@ import InstagramIcon from "@/image/insta_icons/instagram_icon.png";
 import { useNavigate, Link } from "react-router-dom";
 
 function Sidenav({ user }) {
-  // console.log("user data: ", user[0].data.username);
+  // console.log("user data: ", user[0]?.data?.username);
   const navigate = useNavigate();
   const [moreClick, setMoreClick] = useState(false);
   const handleLogOut = (e) => {
@@ -69,7 +69,7 @@ function Sidenav({ user }) {
         </Link>
         <Link className="item itemOrder3" to="">
           <img src={ProfileIcon} alt="ProfileIcon" />
-          <p className="text-dark m-0">{user[0].data.username}</p>
+          <p className="text-dark m-0">{user[0]?.data?.username}</p>
         </Link>
       </div>
       <div className="item item-end" onClick={() => setMoreClick(!moreClick)}>
