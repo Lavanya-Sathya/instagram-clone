@@ -38,6 +38,7 @@
 .userProfileSubDiv2 {
   display: flex;
   gap: 20px;
+  text-align: center;
   margin-bottom: 0.5rem;
 }
 span {
@@ -78,6 +79,10 @@ span {
   }
   span {
     font-size: 0.9rem;
+  }
+  .userProfileSubDiv1,
+  .userProfileSubDiv2 {
+    gap: 15px;
   }
   .profileImg {
     width: 98px;
