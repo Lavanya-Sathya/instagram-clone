@@ -1,6 +1,14 @@
 import React, { useRef, useState } from "react";
 import "./ReelVideo.css";
-function ReelVideo({ url, likes, shares, channel, song, avatarSrc }) {
+function ReelVideo({
+  url,
+  likes,
+  comments,
+  caption,
+  channel,
+  song,
+  avatarSrc,
+}) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef(null);
   const onVideoPress = () => {
@@ -41,6 +49,7 @@ function ReelVideo({ url, likes, shares, channel, song, avatarSrc }) {
           <h5>{channel}</h5>
           <button>Follow</button>
         </div>
+        <p className="captionReel text-white">{caption}</p>
         <div className="videoIcons">
           <span className="d-flex flex-column">
             <i
@@ -51,7 +60,7 @@ function ReelVideo({ url, likes, shares, channel, song, avatarSrc }) {
           </span>
           <span className="d-flex flex-column">
             <i className="bi bi-chat MobileReelTextColor"></i>
-            <span className="MobileReelTextColor">{shares}</span>
+            <span className="MobileReelTextColor">{comments}</span>
           </span>
           <i className="bi bi-send MobileReelTextColor"></i>
           <i

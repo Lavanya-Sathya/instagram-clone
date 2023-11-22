@@ -16,7 +16,8 @@ function Reels() {
             song="music name"
             url={video1}
             likes="200"
-            shares="20"
+            comments="20"
+            caption="This is the caption for the post. Caption goes here"
           />
           <ReelVideo
             channel="escapeTime"
@@ -24,7 +25,8 @@ function Reels() {
             song="test song"
             url={video2}
             likes="140"
-            shares="14"
+            comments="14"
+            caption="This is the caption for the post"
           />
         </div>
       </div>

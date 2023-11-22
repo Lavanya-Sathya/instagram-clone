@@ -4,7 +4,7 @@
   height: 100%;
   scroll-snap-align: start;
 }
-
+/* video container  */
 .videoPlayer {
   object-fit: fill;
   width: 85%;
@@ -46,6 +46,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 12px;
+  margin-bottom: 1.5rem;
 }
 .videoFooterText > img {
   width: 50px;
@@ -64,6 +65,12 @@
 }
 .videoFooterText > button:hover {
   background-color: rgba(0, 0, 0, 0.3);
+}
+.captionReel {
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  padding: 1rem 3rem 0rem 2rem;
 }
 /* video icons styling and positioning*/
 .videoIcons {

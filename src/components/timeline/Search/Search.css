@@ -1,0 +1,12 @@
+.searchContainer {
+  margin-top: 6rem;
+}
+.searchContainer > input {
+  width: 60%;
+  margin: auto;
+}
+@media screen and (max-width: 780px) {
+  .searchContainer > input {
+    width: 80%;
+  }
+}

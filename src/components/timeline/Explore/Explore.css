@@ -1,0 +1,24 @@
+.exploreContainer {
+  margin: 5rem 3rem 2rem;
+}
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 273px);
+  justify-content: center;
+}
+@media screen and (max-width: 1200px) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 273px);
+  }
+}
+@media screen and (max-width: 980px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 273px);
+  }
+}
+.grid > img {
+  object-fit: contain;
+  width: 273px;
+  height: 273px;
+  border: 1px solid #e0e0e0;
+}
