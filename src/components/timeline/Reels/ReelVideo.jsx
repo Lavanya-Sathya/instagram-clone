@@ -43,15 +43,21 @@ function ReelVideo({ url, likes, shares, channel, song, avatarSrc }) {
         </div>
         <div className="videoIcons">
           <span className="d-flex flex-column">
-            <i className="bi bi-heart" onClick={(e) => handleHeart(e)}></i>
-            <span className="MobileWhite">{likes}</span>
+            <i
+              className="bi bi-heart MobileReelTextColor"
+              onClick={(e) => handleHeart(e)}
+            ></i>
+            <span className="MobileReelTextColor">{likes}</span>
           </span>
           <span className="d-flex flex-column">
-            <i className="bi bi-chat"></i>
-            <span className="MobileWhite">{shares}</span>
+            <i className="bi bi-chat MobileReelTextColor"></i>
+            <span className="MobileReelTextColor">{shares}</span>
           </span>
-          <i className="bi bi-send"></i>
-          <i className="bi bi-bookmark" onClick={(e) => handleSavePost(e)}></i>
+          <i className="bi bi-send MobileReelTextColor"></i>
+          <i
+            className="bi bi-bookmark MobileReelTextColor"
+            onClick={(e) => handleSavePost(e)}
+          ></i>
         </div>
       </div>
     </div>
