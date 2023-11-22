@@ -9,7 +9,7 @@ function Post({ user, postImage, likes, timestamp, caption }) {
   const [comment, setComment] = useState("");
 
   const [timeElapsed, setTimeElapsed] = useState(0);
-  // Timestamp format and update for every 5s
+  // Timestamp format and update for every 3s
   useEffect(() => {
     const intervalId = setInterval(() => {
       const now = new Date();
@@ -26,7 +26,7 @@ function Post({ user, postImage, likes, timestamp, caption }) {
       //   days,
       // });
       setTimeElapsed(seconds);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(intervalId);
   }, [timestamp]);
   const formatTime = () => {

@@ -51,7 +51,7 @@ function Sidenav({ user }) {
           <img src={ExploreIcon} alt="ExploreIcon" />
           <p className="text-dark m-0">Explore</p>
         </Link>
-        <Link className="item itemOrder1" to="">
+        <Link className="item itemOrder1" to="/home/reels">
           <img src={ReelsIcon} alt="ReelsIcon" />
           <p className="text-dark m-0">Reels</p>
         </Link>

@@ -1,0 +1,88 @@
+.videoCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+}
+
+.videoPlayer {
+  object-fit: fill;
+  width: 85%;
+  height: 100%;
+  background-color: rgb(243, 245, 245);
+  border-radius: 15px;
+}
+
+.videoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  color: white;
+  width: 85%;
+}
+.videoHeader > * {
+  padding: 15px;
+}
+/* adjusting video player for mobile view */
+@media screen and (max-width: 470px) {
+  .videoPlayer {
+    width: 100%;
+  }
+  .bi,
+  .MobileWhite {
+    color: white;
+  }
+  .videoHeader {
+    width: 100%;
+  }
+}
+/* video footer styling */
+.videoFooterText {
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+.videoFooterText > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5rem;
+}
+.videoFooterText > h5 {
+  color: white;
+}
+.videoFooterText > button {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.videoFooterText > button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* video icons styling and positioning*/
+.videoIcons {
+  position: absolute;
+  bottom: 5rem;
+  right: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* video play button */
+.playBtn {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  background-color: rgb(105, 104, 104);
+  padding: 15px 22px;
+  color: #e0e0e0;
+  border-radius: 5rem;
+}

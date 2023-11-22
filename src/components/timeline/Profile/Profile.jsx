@@ -1,7 +1,18 @@
 import React from "react";
 import "./Profile.css";
 import userProfile from "@/image/img.jpg";
+import { useNavigate } from "react-router-dom";
+
 function Profile({ user }) {
+  const navigate = useNavigate();
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    const confirmLogOut = confirm("Are you sure you want to Log Out?");
+    if (confirmLogOut) {
+      sessionStorage.removeItem("Token");
+      navigate("/");
+    }
+  };
   return (
     <div className="profileContainer">
       <div className="userDetailsCont">
@@ -14,7 +25,10 @@ function Profile({ user }) {
             <span className="h4">{user?.data?.username}</span>
             <button className="btnEditView btntoggle">Edit Profile</button>
             <button className="btnEditView btntoggle">View archive</button>
-            <i class="bi bi-gear-wide btntoggle"></i>
+            <i
+              className="bi bi-box-arrow-right btntoggle"
+              onClick={handleLogOut}
+            ></i>
           </div>
           <div className="userProfileSubDiv2">
             <span>
@@ -33,7 +47,7 @@ function Profile({ user }) {
       <div className="mobileResProfile">
         <button className="btnEditView btntoggle1">Edit Profile</button>
         <button className="btnEditView btntoggle1">View archive</button>
-        <i class="bi bi-gear-wide "></i>
+        <i className="bi bi-box-arrow-right" onClick={handleLogOut}></i>{" "}
       </div>
       <div className="userDetailsCont2"></div>
     </div>
