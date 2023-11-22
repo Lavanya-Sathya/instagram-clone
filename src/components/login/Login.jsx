@@ -22,7 +22,7 @@ function Login() {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        alert("Logged In");
+        alert("Logged in Successfully");
         onAuthStateChanged(auth, (user) => {
           if (user) {
             const uid = user.uid;
