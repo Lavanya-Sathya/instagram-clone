@@ -14,7 +14,7 @@ This project is an Instagram clone built as a full-stack web application, featur
 - Secure user authentication is provided using Firebase Authentication.
 
 #### Feed 
--Users can view a feed of posts uploaded by users.
+- Users can view a feed of posts uploaded by users.
 
 #### Post Creation
 - Users can create posts by uploading images, Reels and add captions to share with others.
