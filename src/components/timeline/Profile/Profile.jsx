@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Profile.css";
 import userProfile from "@/image/img.jpg";
 import { useNavigate } from "react-router-dom";
+import ProfilePost from "./ProfilePost";
+import ProfileReel from "./ProfileReel";
 
 function Profile({ user }) {
+  const [isPostSelected, setIsPostSelected] = useState(true);
   const navigate = useNavigate();
+  // Logout from the current user session
   const handleLogOut = (e) => {
     e.preventDefault();
     const confirmLogOut = confirm("Are you sure you want to Log Out?");
@@ -15,6 +19,7 @@ function Profile({ user }) {
   };
   return (
     <div className="profileContainer">
+      {/* User details section */}
       <div className="userDetailsCont">
         <div className="imgUserNameCon">
           <img src={userProfile} alt="profile" className="profileImg" />
@@ -49,7 +54,36 @@ function Profile({ user }) {
         <button className="btnEditView btntoggle1">View archive</button>
         <i className="bi bi-box-arrow-right" onClick={handleLogOut}></i>{" "}
       </div>
-      <div className="userDetailsCont2"></div>
+
+      <div className="userDetailsCont2">
+        <div className="ProfileBtnCont">
+          <button
+            className="ProfilePostsReelsBtn"
+            onClick={() => setIsPostSelected(true)}
+            style={{ borderTop: isPostSelected ? "1px solid black" : "none" }}
+          >
+            Posts
+          </button>
+          {/* false */}
+          <button
+            className="ProfilePostsReelsBtn"
+            onClick={() => setIsPostSelected(false)}
+            style={{ borderTop: isPostSelected ? "none" : "1px solid black" }}
+          >
+            Reels
+          </button>
+        </div>
+
+        {isPostSelected ? (
+          <div>
+            <ProfilePost />
+          </div>
+        ) : (
+          <div>
+            <ProfileReel />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./ReelVideo.css";
 function ReelVideo({
   url,
@@ -11,6 +11,16 @@ function ReelVideo({
 }) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef(null);
+  // useEffect(() => {
+  //   // Start autoplay when the component mounts
+  //   videoRef.current.play();
+  //   setIsVideoPlaying(true);
+
+  //   // Pause video when component unmounts
+  //   return () => {
+  //     videoRef.current.pause();
+  //   };
+  // }, []);
   const onVideoPress = () => {
     if (isVideoPlaying) {
       // pause video
@@ -27,12 +37,14 @@ function ReelVideo({
       <div className="videoHeader">
         <i class="bi bi-arrow-left" style={{ color: "white" }}></i>
         <span>Reels</span>
-        <i class="bi bi-camera" style={{ color: "white" }}></i>
+        <i
+          className={!isVideoPlaying ? "bi bi-volume-mute" : "bi bi-volume-up"}
+          style={{ color: "white" }}
+        ></i>
       </div>
       <i
         className="bi bi-play-fill playBtn"
         style={{ display: isVideoPlaying ? "none" : "block" }}
-        ref={videoRef}
         onClick={onVideoPress}
       ></i>
       <video

@@ -48,7 +48,7 @@ function Sidenav({ user }) {
           <p className="text-dark m-0">Home</p>
         </Link>
         {/* Search Option */}
-        <Link className="item" to="/home/search">
+        <Link className="item" to="/home/explore">
           <img src={SearchIcon} alt="SearchIcon" />
           <p className="text-dark m-0">Search</p>
         </Link>

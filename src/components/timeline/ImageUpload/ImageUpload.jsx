@@ -8,21 +8,39 @@ function ImageUpload({ user }) {
   const userProfile = user?.data?.username;
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
+  const [video, setVideo] = useState(null);
 
   const handleChangeFile = (e) => {
     if (e.target.files[0]) {
-      setImage(e.target.files[0]);
+      const selectedFile = e.target.files[0];
+      if (selectedFile.type.startsWith("image/")) {
+        // It's an image file
+        setImage(e.target.files[0]);
+      } else if (selectedFile.type.startsWith("video/")) {
+        // It's a video file
+        setVideo(e.target.files[0]);
+      } else {
+        // It's neither an image nor a video
+        alert("Please select either an image or a video file.");
+      }
     }
   };
   const handleUpload = () => {
-    if (!image) {
+    if (!image && !video) {
       // Ensure there is a selected image before proceeding with the upload
-      alert("No image selected for upload.");
+      alert("No image or video is selected for upload.");
       return;
     }
-    const storageRef = ref(storage, `images/${image.name}`);
+    const timestamp = new Date();
 
-    uploadBytes(storageRef, image)
+    const storageRef = ref(
+      storage,
+      image
+        ? `images/${timestamp}_${image.name}`
+        : `videos/${timestamp}_${video.name}`
+    );
+
+    uploadBytes(storageRef, image || video)
       .then((snapshot) => {
         // Return a Promise that resolves with the download URL
         return getDownloadURL(snapshot.ref);
@@ -37,6 +55,7 @@ function ImageUpload({ user }) {
           caption: caption,
           postImage: url,
           user: userProfile,
+          type: image ? "image" : "video",
         });
 
         setImage(null);
@@ -67,6 +86,7 @@ function ImageUpload({ user }) {
           id="postImage"
           className="form-control mt-4 mb-2"
           onChange={handleChangeFile}
+          accept="image/*,video/*"
         />
         <button className="ImageUploadBtn" onClick={handleUpload}>
           Upload

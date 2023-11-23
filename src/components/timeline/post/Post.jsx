@@ -1,34 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { db } from "../../Firebase/Firebase";
 import "./post.css";
 import userIcon from "@/image/insta_icons/user_profile.png";
-function Post({ user, postImage, likes, timestamp, caption }) {
+function Post({ user, postImage, likes, timestamp, caption, type }) {
   const [colorHeart, setcolorHeart] = useState(false);
   const [savePost, setsavePost] = useState(false);
   const [addComment, setAddComment] = useState(false);
   const [comment, setComment] = useState("");
-
   const [timeElapsed, setTimeElapsed] = useState(0);
-  // Timestamp format and update for every 3s
+
+  // To show video in the timeline
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef(null);
+  const onVideoPress = () => {
+    if (isVideoPlaying) {
+      // pause video
+      videoRef.current.pause();
+      setIsVideoPlaying(false);
+    } else {
+      // play video
+      videoRef.current.play();
+      setIsVideoPlaying(true);
+    }
+  };
+
+  // Timestamp format and updated once when the page is refreshed
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      const now = new Date();
-      const timestampDate = timestamp.toDate();
-      const timeDifference = Math.floor(now - timestampDate);
-      const seconds = Math.floor(timeDifference / 1000);
-      // const minutes = Math.floor(seconds / 60);
-      // const hours = Math.floor(minutes / 60);
-      // const days = Math.floor(hours / 24);
-      // console.log("Time Elapsed: ", {
-      //   seconds,
-      //   minutes,
-      //   hours,
-      //   days,
-      // });
-      setTimeElapsed(seconds);
-    }, 3000);
-    return () => clearInterval(intervalId);
-  }, [timestamp]);
+    const now = new Date();
+    const timestampDate = timestamp.toDate();
+    const timeDifference = Math.floor(now - timestampDate);
+    const seconds = Math.floor(timeDifference / 1000);
+    // const minutes = Math.floor(seconds / 60);
+    // const hours = Math.floor(minutes / 60);
+    // const days = Math.floor(hours / 24);
+    // console.log("Time Elapsed: ", {
+    //   seconds,
+    //   minutes,
+    //   hours,
+    //   days,
+    // });
+    setTimeElapsed(seconds);
+  }, []);
   const formatTime = () => {
     if (timeElapsed < 60) {
       return `${timeElapsed}s`;
@@ -77,9 +89,27 @@ function Post({ user, postImage, likes, timestamp, caption }) {
           <i className="bi bi-three-dots"></i>
         </span>
       </div>
-      <div className="postImage">
-        <img src={postImage} alt="" className="w-100" />
-      </div>
+      {type == "image" ? (
+        <div className="postImage">
+          <img src={postImage} alt="image" className="w-100" />
+        </div>
+      ) : (
+        <div className="postVideo">
+          <i
+            className="bi bi-play-fill playBtn"
+            style={{ display: isVideoPlaying ? "none" : "block" }}
+            onClick={onVideoPress}
+          ></i>
+          <video
+            src={postImage}
+            ref={videoRef}
+            onClick={onVideoPress}
+            alt="video"
+            className="w-100"
+            loop={true}
+          />
+        </div>
+      )}
       <div className="postFooter ">
         <div className="postFooterIconsContainer h4 d-flex justify-content-between p-2">
           <div className="postFooterIcons d-flex gap-2">

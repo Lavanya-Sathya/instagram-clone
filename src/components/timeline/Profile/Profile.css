@@ -62,6 +62,18 @@ span {
 .btntoggle1 {
   padding: 0.5rem 1.6rem;
 }
+/* Profile post and reel section */
+.ProfileBtnCont {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.ProfilePostsReelsBtn {
+  padding: 0.5rem 2rem;
+  border: none;
+  background-color: white;
+}
+
 @media screen and (max-width: 1000px) {
   .userDetailsCont {
     margin-left: 0rem;
