@@ -48,12 +48,12 @@ function Sidenav({ user }) {
           <p className="text-dark m-0">Home</p>
         </Link>
         {/* Search Option */}
-        <Link className="item" to="/home/explore">
+        <Link className="item" to="/home/search">
           <img src={SearchIcon} alt="SearchIcon" />
           <p className="text-dark m-0">Search</p>
         </Link>
         {/* Explore section */}
-        <Link className="item item1" to="/home/explore">
+        <Link className="item" to="/home/explore">
           <img src={ExploreIcon} alt="ExploreIcon" />
           <p className="text-dark m-0">Explore</p>
         </Link>
