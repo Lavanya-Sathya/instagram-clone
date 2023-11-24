@@ -47,7 +47,7 @@ function Login() {
         <div className="loginContainer mt-3">
           <div className="logDetails">
             <div className="header">
-              <h1>Instagram</h1>
+              <h1>InstaClone</h1>
             </div>
             <div className="form">
               <InputwithVal

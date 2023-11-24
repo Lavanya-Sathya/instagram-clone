@@ -47,7 +47,7 @@ const Register = () => {
         <div className="registerFlex">
           <div className="registerDetails">
             <div className="header">
-              <h1>Instagram</h1>
+              <h1>InstaClone</h1>
             </div>
             <div
               className="h6 text-center mb-3"

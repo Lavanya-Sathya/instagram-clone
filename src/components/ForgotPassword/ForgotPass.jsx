@@ -8,7 +8,7 @@ function ForgotPass() {
   return (
     <>
       <div className="headerForgot">
-        <h2>Instagram</h2>
+        <h2>InstaClone</h2>
       </div>
       <div className="passContainer">
         <div className="passDetails">

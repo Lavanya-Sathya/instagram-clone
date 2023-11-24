@@ -30,7 +30,7 @@ function Sidenav({ user }) {
     <div className="sidenav">
       <Link className="headerHome" to="/home">
         <img src={InstagramIcon} alt="InstagramIcon" />
-        <p className="h3">Instagram</p>
+        <p className="h3">InstaClone</p>
         {/* Notification */}
         <div className="d-flex gap-4">
           <Link className="itemNotification" to="">
