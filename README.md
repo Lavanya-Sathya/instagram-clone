@@ -30,7 +30,7 @@ This project is an Instagram clone built as a full-stack web application, featur
 - **Frontend:** React, React Router, CSS, HTML, Bootstrap.
 - **Backend:** Firebase (Firestore for database, Authentication for user management).
 - **Storage:** Firebase Storage for image and video storage.
-- **Deployment:** The application is deployed using [Netlify](https://instagram-clone-react1.netlify.app/).
+- **Deployment:** The application is deployed using [Netlify](https://insta-clone-react1.netlify.app/).
 
 ## Getting Started
 
