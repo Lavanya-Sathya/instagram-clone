@@ -61,8 +61,7 @@ const Register = () => {
               </span>
               <p className="h5">
                 <Link
-                  target="_blank"
-                  to="https://www.facebook.com/"
+                  to=""
                   className="text-decoration-none"
                   style={{ color: "rgb(255, 255, 255)", fontSize: "1rem" }}
                 >
@@ -131,16 +130,10 @@ const Register = () => {
           <div className="loginHelp mt-2">
             <p className="text-center">Get the App</p>
             <div className="d-flex justify-content-center gap-3 flex-wrap">
-              <Link
-                to="https://play.google.com/store/apps/details?id=com.instagram.android"
-                target="_blank"
-              >
+              <Link to="">
                 <img src={GooglePlay} alt="Get it on Google play" />
               </Link>
-              <Link
-                to="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1366%2C728"
-                target="_blank"
-              >
+              <Link to="">
                 <img src={Microsoft} alt="Get it on Microsoft" />
               </Link>
             </div>

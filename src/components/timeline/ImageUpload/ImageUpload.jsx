@@ -5,6 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../Firebase/Firebase";
 
 function ImageUpload({ user }) {
+  const userProfileId = user?.data?.uid;
   const userProfile = user?.data?.username;
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
@@ -54,6 +55,7 @@ function ImageUpload({ user }) {
           timestamp: serverTimestamp(),
           caption: caption,
           postImage: url,
+          uid: userProfileId,
           user: userProfile,
           type: image ? "image" : "video",
         });
