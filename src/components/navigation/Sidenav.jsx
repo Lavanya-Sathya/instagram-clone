@@ -12,7 +12,7 @@ import MoreIcon from "@/image/insta_icons/more_light.png";
 import InstagramIcon from "@/image/insta_icons/instagram_icon.png";
 import { useNavigate, Link } from "react-router-dom";
 
-function Sidenav({ user }) {
+function Sidenav() {
   // console.log("user data: ", user.data.username);
   const navigate = useNavigate();
   const [moreClick, setMoreClick] = useState(false);
@@ -80,7 +80,7 @@ function Sidenav({ user }) {
         {/* User profile */}
         <Link className="item itemOrder3" to="/home/userprofile">
           <img src={ProfileIcon} alt="ProfileIcon" />
-          <p className="text-dark m-0">{user?.data?.username}</p>
+          <p className="text-dark m-0">Profile</p>
         </Link>
       </div>
       {/* More option onclick gives the other options to explore */}

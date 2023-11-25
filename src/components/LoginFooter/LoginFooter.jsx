@@ -23,7 +23,7 @@ function LoginFooter() {
         <Link to="">Meta Verified</Link>
       </div>
       <div className="FooterCopy mt-3 text-center">
-        © 2023 Instagram from Meta
+        © 2023 InstaClone from Lavanya 
       </div>
     </div>
   );
