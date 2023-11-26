@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Profile.css";
 import userProfile from "@/image/img.jpg";
 import { useNavigate } from "react-router-dom";
 import ProfilePost from "./ProfilePost";
 import ProfileReel from "./ProfileReel";
+import UserContext from "../../Home/context/UserContext";
 
-function Profile({ user }) {
+function Profile() {
+  const { user } = useContext(UserContext);
   const [isPostSelected, setIsPostSelected] = useState(true);
   const navigate = useNavigate();
   // Logout from the current user session

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./ImageUpload.css";
 import { collection, serverTimestamp, addDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../Firebase/Firebase";
+import UserContext from "../../Home/context/UserContext";
 
-function ImageUpload({ user }) {
+function ImageUpload() {
+  const { user } = useContext(UserContext);
   const userProfileId = user?.data?.uid;
   const userProfile = user?.data?.username;
   const [caption, setCaption] = useState("");

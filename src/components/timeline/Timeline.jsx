@@ -3,7 +3,6 @@ import "./timeline.css";
 import Sugesstions from "./Sugesstions";
 import Post from "./post/Post";
 import { db } from "../Firebase/Firebase";
-import { Link } from "react-router-dom";
 import {
   collection,
   getDocs,
@@ -63,14 +62,6 @@ function Timeline() {
         )}
       </div>
       <div className="timelineRight">
-        <div className="sugesstionTime d-flex align-items-center justify-content-between p-2 mb-3">
-          <p className="h6 mb-0">Suggested for you</p>
-          <Link to="" className="text-decoration-none">
-            See All
-          </Link>
-        </div>
-        <Sugesstions />
-        <Sugesstions />
         <Sugesstions />
       </div>
     </div>
