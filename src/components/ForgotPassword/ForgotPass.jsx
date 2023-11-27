@@ -33,7 +33,7 @@ function ForgotPass() {
             </div>
             <div className="mt-1 text-center ">
               <Link
-                to="https://help.instagram.com/374546259294234"
+                to=""
                 className="text-decoration-none "
                 style={{ fontSize: "0.8rem", color: "darkblue" }}
               >
