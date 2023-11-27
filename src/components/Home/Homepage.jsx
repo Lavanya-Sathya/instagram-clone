@@ -11,6 +11,8 @@ import Reels from "../timeline/Reels/Reels";
 import Search from "../timeline/Search/Search";
 import Explore from "../timeline/Explore/Explore";
 import UserContextProvider from "./context/UserContextProvider";
+import Message from "../timeline/Message/Message";
+import Notification from "../timeline/Notification/Notification";
 function Homepage() {
   const navigate = useNavigate();
   useEffect(() => {
@@ -36,7 +38,8 @@ function Homepage() {
             <Route path="/reels" element={<Reels />} />
             <Route path="/search" element={<Search />} />
             <Route path="/explore" element={<Explore />} />
-
+            <Route path="/message" element={<Message />} />
+            <Route path="/notification" element={<Notification />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>

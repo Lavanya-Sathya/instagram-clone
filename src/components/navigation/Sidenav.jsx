@@ -33,10 +33,10 @@ function Sidenav() {
         <p className="h3">InstaClone</p>
         {/* Notification */}
         <div className="d-flex gap-4">
-          <Link className="itemNotification" to="">
+          <Link className="itemNotification" to="/home/notification">
             <img src={NotificationIcon} alt="NotificationIcon" />
           </Link>
-          <Link className="itemNotification" to="">
+          <Link className="itemNotification" to="/home/message">
             <img src={MessageIcon} alt="MessageIcon" />
           </Link>
         </div>
@@ -63,12 +63,12 @@ function Sidenav() {
           <p className="text-dark m-0">Reels</p>
         </Link>
         {/* Message */}
-        <Link className="item item1" to="">
+        <Link className="item item1" to="/home/message">
           <img src={MessageIcon} alt="MessageIcon" />
           <p className="text-dark m-0">Messages</p>
         </Link>
         {/* Notification */}
-        <Link className="item item1" to="">
+        <Link className="item item1" to="/home/notification">
           <img src={NotificationIcon} alt="NotificationIcon" />
           <p className="text-dark m-0">Notifications</p>
         </Link>
