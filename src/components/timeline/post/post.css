@@ -1,6 +1,5 @@
 .bi {
   font-size: 1.5rem;
-  color: black;
   cursor: pointer;
 }
 .bi:hover {
@@ -45,10 +44,8 @@
 }
 .btnCommentPost {
   border: none;
-  background-color: white;
   color: blue;
   font-size: 1rem;
-  /* display: none; */
 }
 .btnCommentPost:hover {
   color: rgb(19, 19, 71);

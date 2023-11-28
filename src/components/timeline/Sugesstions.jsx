@@ -3,7 +3,9 @@ import "./sugesstion.css";
 import { useNavigate, Link } from "react-router-dom";
 import userImg from "@/image/img.jpg";
 import UserContext from "../Home/context/UserContext";
+import UserTheme from "../Home/context/UserTheme";
 function Sugesstions() {
+  const { isThemeModeLight } = useContext(UserTheme);
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
   // Logout from the current user session
@@ -25,7 +27,11 @@ function Sugesstions() {
             {user?.data?.username}
           </div>
         </div>
-        <button className="btnSugFollow" onClick={handleLogOut}>
+        <button
+          className="btnSugFollow"
+          style={{ backgroundColor: isThemeModeLight ? "white" : "black" }}
+          onClick={handleLogOut}
+        >
           Switch
         </button>
       </div>
@@ -43,7 +49,12 @@ function Sugesstions() {
             <p className="mb-0">Followed by roopa</p>
           </div>
         </div>
-        <button className="btnSugFollow">Follow</button>
+        <button
+          className="btnSugFollow"
+          style={{ backgroundColor: isThemeModeLight ? "white" : "black" }}
+        >
+          Follow
+        </button>
       </div>
     </>
   );

@@ -35,7 +35,7 @@ function ReelVideo({
   return (
     <div className="videoCard">
       <div className="videoHeader">
-        <i class="bi bi-arrow-left" style={{ color: "white" }}></i>
+        <i className="bi bi-arrow-left" style={{ color: "white" }}></i>
         <span>Reels</span>
         <i
           className={!isVideoPlaying ? "bi bi-volume-mute" : "bi bi-volume-up"}

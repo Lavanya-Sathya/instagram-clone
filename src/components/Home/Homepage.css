@@ -6,6 +6,8 @@ body {
 .homepage {
   display: flex;
   flex-direction: row;
+  min-height: 100vh;
+  height: auto;
 }
 .homepageNav {
   flex: 0.2;

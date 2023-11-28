@@ -10,7 +10,7 @@
 .reelVideos {
   position: relative;
   height: 94vh;
-  background-color: white;
+  /* background-color: white; */
   width: 40%;
   /* border-radius: 15px; */
   max-width: 450px;

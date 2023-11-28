@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { db } from "../../Firebase/Firebase";
 import "./post.css";
-import userIcon from "@/image/insta_icons/user_profile.png";
+import UserTheme from "../../Home/context/UserTheme";
 function Post({ user, postImage, likes, timestamp, caption, type }) {
+  const { isThemeModeLight } = useContext(UserTheme);
   const [colorHeart, setcolorHeart] = useState(false);
   const [savePost, setsavePost] = useState(false);
   const [addComment, setAddComment] = useState(false);
   const [comment, setComment] = useState("");
   const [timeElapsed, setTimeElapsed] = useState(0);
-
   // To show video in the timeline
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef(null);
@@ -60,7 +60,7 @@ function Post({ user, postImage, likes, timestamp, caption, type }) {
       ? ((e.target.style.color = "red"),
         (e.target.className = "bi bi-heart-fill"))
       : ((e.target.className = "bi bi-heart"),
-        (e.target.style.color = "black"));
+        (e.target.style.color = isThemeModeLight ? "black" : "white"));
     setcolorHeart(!colorHeart);
   };
   const handleSavePost = (e) => {
@@ -77,11 +77,12 @@ function Post({ user, postImage, likes, timestamp, caption, type }) {
     <div className="post mb-2 pb-3 border-bottom">
       <div className="postHeader d-flex justify-content-between align-items-center mb-1 p-2">
         <div className="postHeaderAuthor d-flex gap-2 align-items-center">
-          <img
+          {/* <img
             src={userIcon}
             alt="Icon"
             style={{ width: "3rem", height: "3rem" }}
-          />
+          /> */}
+          <i className="bi bi-person-circle"></i>
           <p className="h6 username mb-0">{user} </p>
           <span className="spanHeader">• {formatTime()}</span>
         </div>
@@ -113,7 +114,11 @@ function Post({ user, postImage, likes, timestamp, caption, type }) {
       <div className="postFooter ">
         <div className="postFooterIconsContainer h4 d-flex justify-content-between p-2">
           <div className="postFooterIcons d-flex gap-2">
-            <i className="bi bi-heart" onClick={(e) => handleHeart(e)}></i>
+            <i
+              className="bi bi-heart"
+              style={{ color: isThemeModeLight ? "black" : "white" }}
+              onClick={(e) => handleHeart(e)}
+            ></i>
             <i className="bi bi-chat"></i>
             <i className="bi bi-send"></i>
           </div>
@@ -145,11 +150,18 @@ function Post({ user, postImage, likes, timestamp, caption, type }) {
             placeholder="Add a comment..."
             value={comment}
             onChange={(e) => handleAddComment(e)}
+            style={{
+              backgroundColor: isThemeModeLight ? "white" : "black",
+              color: isThemeModeLight ? "black" : "white",
+            }}
           ></textarea>
           <div className="d-flex align-items-center">
             <button
               className="btnCommentPost"
-              style={{ display: addComment ? "block" : "none" }}
+              style={{
+                display: addComment ? "block" : "none",
+                backgroundColor: isThemeModeLight ? "white" : "black",
+              }}
             >
               Post
             </button>

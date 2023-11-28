@@ -71,7 +71,6 @@ span {
 .ProfilePostsReelsBtn {
   padding: 0.5rem 2rem;
   border: none;
-  background-color: white;
 }
 
 @media screen and (max-width: 1000px) {

@@ -11,14 +11,13 @@
   margin: 1rem 1rem 0.5rem 1.2rem;
   cursor: pointer;
   text-decoration: none;
-  color: black;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 .headerHome > p {
   padding-left: 2rem;
 }
-.headerHome > img {
+.headerHome > i {
   width: 1.8rem;
   height: 1.8rem;
   display: none;
@@ -35,23 +34,15 @@
   flex-direction: row;
   align-items: center;
   gap: 10px;
-  padding: 0.8rem 0;
+  padding: 0.5rem 0;
   padding-left: 0.5rem;
-  margin: 0.3rem 0.4rem;
+  margin: 0.1rem 0.4rem;
   cursor: pointer;
   font-size: 1.1rem;
   text-decoration: none;
 }
 .itemM {
-  padding: 0.6rem 0;
-}
-.item > img {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-.item:hover {
-  background-color: #e0e0e0;
-  border-radius: 4px;
+  padding: 0.6rem 0.1rem;
 }
 .item-end {
   padding: 0.8rem 8rem;
@@ -63,13 +54,8 @@
 .itemNotification {
   display: none;
 }
-.itemNotification > img {
-  width: 1.5rem;
-  height: 1.5rem;
-}
 .moreComp {
   position: absolute;
-  background-color: rgb(250, 250, 245);
   z-index: 3;
   width: 17rem;
   height: 80%;
@@ -97,7 +83,7 @@
   .headerHome > p {
     display: none;
   }
-  .headerHome > img {
+  .headerHome > i {
     display: block;
     margin-left: 1.7rem;
   }
@@ -107,22 +93,26 @@
   .item-end {
     padding: 0.8rem;
   }
+  .moreComp {
+    display: block;
+  }
 }
 @media screen and (max-width: 780px) {
   .headerHome {
     position: fixed;
     top: 0;
     left: 0;
-    border-bottom: 0.2px solid #e0e0e0;
+    /* border-bottom: 0.2px solid #e0e0e0; */
     width: 100%;
     margin: 0 0rem;
     margin-right: 0.8rem;
-    background-color: white;
+    /* background-color: white; */
     z-index: 2;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    /* background-color: rgb(70, 66, 66); */
   }
   .sidenav {
     border-right: none;
@@ -131,7 +121,7 @@
     display: block;
     padding-left: 0;
   }
-  .headerHome > img {
+  .headerHome > i {
     display: none;
   }
   .sidenav {
@@ -149,8 +139,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    border-top: 0.2px solid #e0e0e0;
-    background-color: white;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -159,7 +147,7 @@
     display: none;
   }
   .item:hover {
-    background-color: white;
+    background-color: rgb(68, 66, 66);
   }
   .item1 {
     display: none;
@@ -175,5 +163,8 @@
   }
   .itemNotification {
     display: block;
+  }
+  .moreComp {
+    display: none;
   }
 }

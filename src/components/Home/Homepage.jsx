@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Homepage.css";
 import Sidenav from "../navigation/Sidenav";
 import Timeline from "../timeline/Timeline";
 import { Route, Routes, Navigate } from "react-router-dom";
 import ImageUpload from "../timeline/ImageUpload/ImageUpload";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Profile from "../timeline/Profile/Profile";
 import Reels from "../timeline/Reels/Reels";
@@ -13,7 +13,9 @@ import Explore from "../timeline/Explore/Explore";
 import UserContextProvider from "./context/UserContextProvider";
 import Message from "../timeline/Message/Message";
 import Notification from "../timeline/Notification/Notification";
+import UserTheme from "./context/UserTheme";
 function Homepage() {
+  const { isThemeModeLight } = useContext(UserTheme);
   const navigate = useNavigate();
   useEffect(() => {
     // authorization not provided to home page if the token is expired
@@ -25,7 +27,13 @@ function Homepage() {
   }, []);
   return (
     <UserContextProvider>
-      <div className="homepage">
+      <div
+        className="homepage"
+        style={{
+          backgroundColor: isThemeModeLight ? "white" : "black",
+          color: isThemeModeLight ? "black" : "white",
+        }}
+      >
         <div className="homepageNav">
           <Sidenav />
         </div>

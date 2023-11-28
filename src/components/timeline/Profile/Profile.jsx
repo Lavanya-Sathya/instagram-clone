@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 import ProfilePost from "./ProfilePost";
 import ProfileReel from "./ProfileReel";
 import UserContext from "../../Home/context/UserContext";
-
+import UserTheme from "../../Home/context/UserTheme";
 function Profile() {
+  const { isThemeModeLight } = useContext(UserTheme);
   const { user } = useContext(UserContext);
   const [isPostSelected, setIsPostSelected] = useState(true);
   const navigate = useNavigate();
@@ -62,7 +63,15 @@ function Profile() {
           <button
             className="ProfilePostsReelsBtn"
             onClick={() => setIsPostSelected(true)}
-            style={{ borderTop: isPostSelected ? "1px solid black" : "none" }}
+            style={{
+              borderTop: isPostSelected
+                ? isThemeModeLight
+                  ? "3px solid rgb(68, 66, 66)"
+                  : "3px solid #e0e0e0"
+                : "none",
+              backgroundColor: isThemeModeLight ? "white" : "black",
+              color: isThemeModeLight ? "black" : "white",
+            }}
           >
             Posts
           </button>
@@ -70,7 +79,15 @@ function Profile() {
           <button
             className="ProfilePostsReelsBtn"
             onClick={() => setIsPostSelected(false)}
-            style={{ borderTop: isPostSelected ? "none" : "1px solid black" }}
+            style={{
+              borderTop: isPostSelected
+                ? "none"
+                  ? isThemeModeLight
+                  : "3px solid rgb(68, 66, 66)"
+                : "3px solid #e0e0e0",
+              backgroundColor: isThemeModeLight ? "white" : "black",
+              color: isThemeModeLight ? "black" : "white",
+            }}
           >
             Reels
           </button>
