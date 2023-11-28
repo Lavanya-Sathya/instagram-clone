@@ -1,41 +1,14 @@
 import React, { useContext, useState } from "react";
 import "./sidenav.css";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserTheme from "../Home/context/UserTheme";
+import NavLinks from "./NavLinks";
 function Sidenav() {
-  const { isThemeModeLight, toggleTheme } = useContext(UserTheme);
-  const navigate = useNavigate();
+  const { isThemeModeLight } = useContext(UserTheme);
   const [moreClick, setMoreClick] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-  // logout from the current user session
-  const handleLogOut = (e) => {
-    e.preventDefault();
-    const confirmLogOut = confirm("Are you sure you want to Log Out?");
-    if (confirmLogOut) {
-      setMoreClick(!moreClick);
-      sessionStorage.removeItem("Token");
-      navigate("/");
-    }
-  };
-  // Toggle Theme Color
-  const handleTheme = (e) => {
-    e.preventDefault();
-    toggleTheme();
-    setMoreClick(!moreClick);
-  };
   const ThemeColors = {
     // backgroundColor: isThemeModeLight ? "white" : "black",
     color: isThemeModeLight ? "black" : "white",
-  };
-  const dynamicStyles = {
-    backgroundColor: isHovered && isThemeModeLight ? "#e0e0e0" : "white",
   };
   return (
     // Side navbar contains various option to explore
@@ -91,67 +64,54 @@ function Sidenav() {
         }}
       >
         {/* Timeline section */}
-        <Link
-          className="item"
-          to="/Home"
-          // style={dynamicStyles}
-          // onMouseEnter={handleMouseEnter}
-          // onMouseLeave={handleMouseLeave}
-        >
-          <i className="bi bi-house" style={ThemeColors}></i>
-          <p className="m-0" style={ThemeColors}>
-            Home
-          </p>
-        </Link>
+        <NavLinks icon="bi bi-house" linkName="Home" toLink="/home" />
         {/* Search Option */}
-        <Link className="item" to="/home/search">
-          <i className="bi bi-search" style={ThemeColors}></i>
-          <p className="m-0" style={ThemeColors}>
-            Search
-          </p>
-        </Link>
+        <NavLinks icon="bi bi-search" linkName="Search" toLink="/home/search" />
         {/* Explore section */}
-        <Link className="item" to="/home/explore">
-          <i className="bi bi-compass" style={ThemeColors}></i>
-          <p className="m-0" style={ThemeColors}>
-            Explore
-          </p>
-        </Link>
+        <NavLinks
+          icon="bi bi-compass"
+          linkName="Explore"
+          toLink="/home/explore"
+        />
         {/* Reels section */}
-        <Link className="item itemOrder1" to="/home/reels">
-          <i className="bi bi-music-note" style={ThemeColors}></i>
-          <p className="m-0" style={ThemeColors}>
-            Reels
-          </p>
-        </Link>
+        <NavLinks
+          classes="item itemOrder1"
+          icon="bi bi-music-note"
+          linkName="Reels"
+          toLink="/home/reels"
+        />
+
         {/* Message */}
-        <Link className="item item1" to="/home/message">
-          <i className="bi bi-chat" style={ThemeColors}></i>
-          <p className=" m-0" style={ThemeColors}>
-            Messages
-          </p>
-        </Link>
+        <NavLinks
+          classes="item item1"
+          icon="bi bi-chat"
+          linkName="Messages"
+          toLink="/home/message"
+        />
+
         {/* Notification */}
-        <Link className="item item1" to="/home/notification">
-          <i className="bi bi-heart" style={ThemeColors}></i>
-          <p className=" m-0" style={ThemeColors}>
-            Notifications
-          </p>
-        </Link>
+        <NavLinks
+          classes="item item1"
+          icon="bi bi-heart"
+          linkName="Notifications"
+          toLink="/home/notification"
+        />
+
         {/* Create a new post */}
-        <Link className="item itemOrder2" to="/home/image-upload">
-          <i className="bi bi-plus-square" style={ThemeColors}></i>
-          <p className=" m-0" style={ThemeColors}>
-            Create
-          </p>
-        </Link>
+        <NavLinks
+          classes="item itemOrder2"
+          icon="bi bi-plus-square"
+          linkName="Create"
+          toLink="/home/image-upload"
+        />
+
         {/* User profile */}
-        <Link className="item itemOrder3" to="/home/userprofile">
-          <i className="bi bi-person-circle" style={ThemeColors}></i>
-          <p className=" m-0" style={ThemeColors}>
-            Profile
-          </p>
-        </Link>
+        <NavLinks
+          classes="item itemOrder3"
+          icon="bi bi-person-circle"
+          linkName="Profile"
+          toLink="/home/userprofile"
+        />
       </div>
       {/* More option onclick gives the other options to explore */}
       <div className="item item-end" onClick={() => setMoreClick(!moreClick)}>
@@ -169,52 +129,59 @@ function Sidenav() {
           }}
         >
           {/* Settings */}
-          <Link className="itemM" to="">
-            <i className="bi bi-gear-wide" style={ThemeColors}></i>
-            <span className=" m-0" style={ThemeColors}>
-              Setting
-            </span>
-          </Link>
+          <NavLinks
+            classes="itemM"
+            icon="bi bi-gear-wide"
+            linkName="Setting"
+            toLink=""
+          />
+
           {/* Activity section */}
-          <Link className="itemM" to="">
-            <i className="bi bi-activity" style={ThemeColors}></i>
-            <span className=" m-0" style={ThemeColors}>
-              Your Activity
-            </span>
-          </Link>
+          <NavLinks
+            classes="itemM"
+            icon="bi bi-activity"
+            linkName="Your Activity"
+            toLink=""
+          />
+
           {/* Saved posts */}
-          <Link className="itemM" to="">
-            <i className="bi bi-bookmark" style={ThemeColors}></i>
-            <span className=" m-0" style={ThemeColors}>
-              Saved
-            </span>
-          </Link>
+          <NavLinks
+            classes="itemM"
+            icon="bi bi-bookmark"
+            linkName="Saved"
+            toLink=""
+          />
+
           {/*Background Color change option */}
-          <Link className="itemM" onClick={(e) => handleTheme(e)}>
-            <i className="bi bi-brightness-high" style={ThemeColors}></i>
-            <span className=" m-0" style={ThemeColors}>
-              Switch appearance
-            </span>
-          </Link>
+          <NavLinks
+            classes="itemM"
+            icon="bi bi-brightness-high"
+            linkName="Switch appearance"
+            toLink=""
+          />
           {/* Report a problem */}
-          <Link className="itemM mb-2" to="">
-            <i className="bi bi-exclamation-octagon" style={ThemeColors}></i>
-            <span className=" m-0" style={ThemeColors}>
-              Report a problem
-            </span>
-          </Link>
+          <NavLinks
+            classes="itemM mb-2"
+            icon="bi bi-exclamation-octagon"
+            linkName=" Report a problem"
+            toLink=""
+          />
+
           {/* Switch the account */}
-          <Link className="itemM" to="">
-            <span className=" m-0" style={ThemeColors}>
-              Switch accounts
-            </span>
-          </Link>
+          <NavLinks
+            classes="itemM"
+            icon=""
+            linkName="Switch accounts"
+            toLink=""
+          />
+
           {/* Logout */}
-          <Link className="itemM border-top" to="" onClick={handleLogOut}>
-            <span className=" m-0" style={ThemeColors}>
-              Log out
-            </span>
-          </Link>
+          <NavLinks
+            classes="itemM border-top"
+            icon=""
+            linkName="Log out"
+            toLink=""
+          />
         </div>
       )}
     </div>

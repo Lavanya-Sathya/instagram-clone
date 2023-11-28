@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import UserContext from "./UserContext";
+import { useNavigate } from "react-router-dom";
 import { db } from "../../Firebase/Firebase";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 const UserContextProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const userId = JSON.parse(sessionStorage.getItem("Token"));
   useEffect(() => {
     // Fetch the current user data from the firebase
     const fetchUserData = async () => {
-      const userId = JSON.parse(sessionStorage.getItem("Token"));
       try {
         const snapshot = await onSnapshot(
           query(collection(db, "users"), where("uid", "==", userId)),
@@ -26,8 +28,18 @@ const UserContextProvider = ({ children }) => {
     };
     fetchUserData();
   }, []);
+  // logout from the current user session
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    const confirmLogOut = confirm("Are you sure you want to Log Out?");
+    if (confirmLogOut) {
+      sessionStorage.removeItem("Token");
+      localStorage.removeItem("theme");
+      navigate("/");
+    }
+  };
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, handleLogOut }}>
       {children}
     </UserContext.Provider>
   );

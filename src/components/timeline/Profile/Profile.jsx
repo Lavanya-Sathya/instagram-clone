@@ -1,24 +1,19 @@
 import React, { useState, useContext } from "react";
 import "./Profile.css";
 import userProfile from "@/image/img.jpg";
-import { useNavigate } from "react-router-dom";
 import ProfilePost from "./ProfilePost";
 import ProfileReel from "./ProfileReel";
 import UserContext from "../../Home/context/UserContext";
 import UserTheme from "../../Home/context/UserTheme";
 function Profile() {
-  const { isThemeModeLight } = useContext(UserTheme);
-  const { user } = useContext(UserContext);
+  const { isThemeModeLight, toggleTheme } = useContext(UserTheme);
+  const { user, handleLogOut } = useContext(UserContext);
+
   const [isPostSelected, setIsPostSelected] = useState(true);
-  const navigate = useNavigate();
-  // Logout from the current user session
-  const handleLogOut = (e) => {
-    e.preventDefault();
-    const confirmLogOut = confirm("Are you sure you want to Log Out?");
-    if (confirmLogOut) {
-      sessionStorage.removeItem("Token");
-      navigate("/");
-    }
+
+  // Toggle Theme Color
+  const handleTheme = (e) => {
+    toggleTheme();
   };
   return (
     <div className="profileContainer">
@@ -32,10 +27,15 @@ function Profile() {
           <div className="userProfileSubDiv1">
             <span className="h4">{user?.data?.username}</span>
             <button className="btnEditView btntoggle">Edit Profile</button>
-            <button className="btnEditView btntoggle">View archive</button>
+            <button
+              className="btnEditView btntoggle"
+              onClick={(e) => handleTheme(e)}
+            >
+              Switch Appearance
+            </button>
             <i
               className="bi bi-box-arrow-right btntoggle"
-              onClick={handleLogOut}
+              onClick={(e) => handleLogOut(e)}
             ></i>
           </div>
           <div className="userProfileSubDiv2">
@@ -54,8 +54,16 @@ function Profile() {
       </div>
       <div className="mobileResProfile">
         <button className="btnEditView btntoggle1">Edit Profile</button>
-        <button className="btnEditView btntoggle1">View archive</button>
-        <i className="bi bi-box-arrow-right" onClick={handleLogOut}></i>{" "}
+        <button
+          className="btnEditView btntoggle1"
+          onClick={(e) => handleTheme(e)}
+        >
+          Switch Appearance
+        </button>
+        <i
+          className="bi bi-box-arrow-right"
+          onClick={(e) => handleLogOut(e)}
+        ></i>
       </div>
 
       <div className="userDetailsCont2">
