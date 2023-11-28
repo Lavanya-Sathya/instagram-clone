@@ -5,6 +5,7 @@ import { db } from "../../Firebase/Firebase";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 const UserContextProvider = ({ children }) => {
   const navigate = useNavigate();
+  // To store current user information
   const [user, setUser] = useState(null);
   const userId = JSON.parse(sessionStorage.getItem("Token"));
   useEffect(() => {

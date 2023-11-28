@@ -38,16 +38,6 @@ function NavLinks({ icon, linkName, toLink, classes = "item" }) {
     e.preventDefault();
     toggleTheme();
   };
-  // // logout from the current user session
-  // const handleLogOut = (e) => {
-  //   e.preventDefault();
-  //   const confirmLogOut = confirm("Are you sure you want to Log Out?");
-  //   if (confirmLogOut) {
-  //     sessionStorage.removeItem("Token");
-  //     localStorage.removeItem("theme");
-  //     navigate("/");
-  //   }
-  // };
   return (
     <Link
       className={classes}
