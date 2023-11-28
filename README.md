@@ -14,7 +14,7 @@ This project is an Instagram clone built as a full-stack web application, featur
 - Secure user authentication is provided using Firebase Authentication.
 
 #### Feed 
-- Users can view a feed of posts uploaded by users.
+- Users can view a feed of posts uploaded by other users.
 
 #### Post Creation
 - Users can create posts by uploading images, Reels and add captions to share with others.
@@ -24,6 +24,23 @@ This project is an Instagram clone built as a full-stack web application, featur
 
 #### Reels section
 - Users can explore short video content in the reels section, similar to Instagram's reels feature.
+
+#### Theme Change
+- Instagram clone includes a theme change feature, allowing users to switch between light and dark modes.
+- This enhances the user experience by providing a personalized appearance.
+  
+##### How to Use Theme Change
+1. Navigate to the More section in Home page or profile section to find the theme change(Switch Mode) option.
+2. Click the "Switch Mode" button to switch between light and dark modes.
+3. Enjoy a visually pleasing experience based on your preferred theme!
+   
+#### Log Out
+- Instagram clone includes Logout, allowing users to securely logout from their session.
+  
+##### How to Use Log Out
+1. Navigate to the More section in Home page or profile section to find the Log Out Option.
+2. Click the "Log Out" button to end the current session.
+3. Your Data is secure.
 
 ## Technologies Used
 
