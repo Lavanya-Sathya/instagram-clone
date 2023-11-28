@@ -25,6 +25,17 @@ This project is an Instagram clone built as a full-stack web application, featur
 #### Reels section
 - Users can explore short video content in the reels section, similar to Instagram's reels feature.
 
+#### Theme Change
+- Instagram clone includes a theme change feature, allowing users to switch between light and dark modes.
+- This enhances the user experience by providing a personalized appearance.
+  
+##### How to Use Theme Change
+1. Navigate to the More section in Home page or profile section to find the theme change(Switch Mode) option.
+2. Click the "Switch Mode" button to switch between light and dark modes.
+3. Enjoy a visually pleasing experience based on your preferred theme!
+   
+
+
 ## Technologies Used
 
 - **Frontend:** React, React Router, CSS, HTML, Bootstrap.
