@@ -6,7 +6,7 @@ import UserContext from "../Home/context/UserContext";
 
 function NavLinks({ icon, linkName, toLink, classes = "item" }) {
   const { isThemeModeLight, toggleTheme } = useContext(UserTheme);
-  const { handleLogOut } = useContext(UserContext);
+  const { handleLogOut, handleSwitch } = useContext(UserContext);
   // handle mouse hover Effect
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => {
@@ -45,9 +45,10 @@ function NavLinks({ icon, linkName, toLink, classes = "item" }) {
       onClick={(e) => {
         if (linkName === "Switch appearance") {
           handleTheme(e);
-        }
-        if (linkName === "Log out") {
+        } else if (linkName === "Log out") {
           handleLogOut(e);
+        } else if (linkName === "Switch accounts") {
+          handleSwitch(e);
         }
       }}
       style={dynamicStyles}

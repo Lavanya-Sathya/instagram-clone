@@ -39,8 +39,18 @@ const UserContextProvider = ({ children }) => {
       navigate("/");
     }
   };
+  // Logout from the current user session
+  const handleSwitch = (e) => {
+    e.preventDefault();
+    const confirmLogOut = confirm("Are you sure you want to Switch?");
+    if (confirmLogOut) {
+      sessionStorage.removeItem("Token");
+      localStorage.removeItem("theme");
+      navigate("/");
+    }
+  };
   return (
-    <UserContext.Provider value={{ user, setUser, handleLogOut }}>
+    <UserContext.Provider value={{ user, setUser, handleLogOut, handleSwitch }}>
       {children}
     </UserContext.Provider>
   );

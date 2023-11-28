@@ -1,22 +1,12 @@
 import React, { useContext } from "react";
 import "./sugesstion.css";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import userImg from "@/image/img.jpg";
 import UserContext from "../Home/context/UserContext";
 import UserTheme from "../Home/context/UserTheme";
 function Sugesstions() {
   const { isThemeModeLight } = useContext(UserTheme);
-  const { user } = useContext(UserContext);
-  const navigate = useNavigate();
-  // Logout from the current user session
-  const handleLogOut = (e) => {
-    e.preventDefault();
-    const confirmLogOut = confirm("Are you sure you want to Switch?");
-    if (confirmLogOut) {
-      sessionStorage.removeItem("Token");
-      navigate("/");
-    }
-  };
+  const { user, handleSwitch } = useContext(UserContext);
   return (
     <>
       <div className="sugContainerHome d-flex align-items-center justify-content-between m-1 p-1 mb-3">
@@ -30,7 +20,7 @@ function Sugesstions() {
         <button
           className="btnSugFollow"
           style={{ backgroundColor: isThemeModeLight ? "white" : "black" }}
-          onClick={handleLogOut}
+          onClick={(e) => handleSwitch(e)}
         >
           Switch
         </button>
