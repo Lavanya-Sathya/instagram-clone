@@ -1,12 +1,44 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./sugesstion.css";
 import { Link } from "react-router-dom";
 import userImg from "@/image/img.jpg";
 import UserContext from "../Home/context/UserContext";
 import UserTheme from "../Home/context/UserTheme";
+import { db } from "../Firebase/Firebase";
+import {
+  collection,
+  onSnapshot,
+  query,
+  where,
+  limit,
+} from "firebase/firestore";
 function Sugesstions() {
   const { isThemeModeLight } = useContext(UserTheme);
   const { user, handleSwitch } = useContext(UserContext);
+  const [suggestion, setSuggestion] = useState(null);
+  useEffect(() => {
+    // Fetch the current user data from the firebase
+    const userId = JSON.parse(sessionStorage.getItem("Token"));
+    const fetchUserDetails = async () => {
+      try {
+        const snapshot = await onSnapshot(
+          query(collection(db, "users"), where("uid", "!=", userId), limit(5)),
+          (querySnapshot) => {
+            const suggestionsArray = [];
+            querySnapshot.forEach((doc) => {
+              console.log(doc.id, " => ", doc.data());
+              suggestionsArray.push({ id: doc.id, data: doc.data() });
+            });
+            setSuggestion(suggestionsArray);
+            console.log("suggestion: ", typeof suggestion);
+          }
+        );
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchUserDetails();
+  }, []);
   return (
     <>
       <div className="sugContainerHome d-flex align-items-center justify-content-between m-1 p-1 mb-3">
@@ -31,21 +63,34 @@ function Sugesstions() {
           See All
         </Link>
       </div>
-      <div className="sugContainerHome d-flex align-items-center justify-content-between m-1 p-1 mb-3">
-        <div className="sugImgName d-flex gap-2 align-items-center">
-          <img src={userImg} alt="" />
-          <div className="">
-            <p className="h6 mb-0 pointer">Username</p>
-            <p className="mb-0">Followed by roopa</p>
-          </div>
-        </div>
-        <button
-          className="btnSugFollow"
-          style={{ backgroundColor: isThemeModeLight ? "white" : "black" }}
-        >
-          Follow
-        </button>
+      <div className="sugContainerHome d-flex flex-column gap-3">
+        {suggestion ? (
+          suggestion.map((suggestUser) => (
+            <div className=" d-flex justify-content-between">
+              <div className="sugImgName d-flex gap-2" key={suggestUser.id}>
+                <img src={userImg} alt="" />
+                <div className="">
+                  <p className="h6 mb-0 pointer">{suggestUser.data.username}</p>
+                  <p className="mb-0">Followed by abc</p>
+                </div>
+              </div>
+              <button
+                className="btnSugFollow"
+                style={{
+                  backgroundColor: isThemeModeLight ? "white" : "black",
+                }}
+              >
+                Follow
+              </button>
+            </div>
+          ))
+        ) : (
+          <div className="m-2">No suggested Users</div>
+        )}
       </div>
+      <p className="m-2 mt-4" style={{ color: "#e0e0e0" }}>
+        &copy; InstaClone
+      </p>
     </>
   );
 }
