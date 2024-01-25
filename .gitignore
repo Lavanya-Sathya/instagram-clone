@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 src/components/Firebase/Firebase.jsx
-
+google4ed9c04f02596491.html
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
