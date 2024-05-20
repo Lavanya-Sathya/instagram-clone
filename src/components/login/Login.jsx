@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Login.css";
 import instaLoginImage from "@/image/loginImages.jpg";
-import GooglePlay from "@/image/googlePlayBtn.jpg";
-import Microsoft from "@/image/MicrosoftBtn.jpg";
+// import GooglePlay from "@/image/googlePlayBtn.jpg";
+// import Microsoft from "@/image/MicrosoftBtn.jpg";
 import LoginFooter from "../LoginFooter/LoginFooter";
 import InputwithVal from "../InputwithVal/InputwithVal";
 import {
@@ -113,17 +113,18 @@ function Login() {
               Sign up
             </Link>
           </div>
-          <div className="loginHelp mt-2">
+          {/* <div className="loginHelp mt-2">
             <p className="text-center">Get the App</p>
             <div className="d-flex justify-content-center gap-3 flex-wrap">
               <Link to="">
+
                 <img src={GooglePlay} alt="Get it on Google play" />
               </Link>
               <Link to="">
                 <img src={Microsoft} alt="Get it on Microsoft" />
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <LoginFooter />
