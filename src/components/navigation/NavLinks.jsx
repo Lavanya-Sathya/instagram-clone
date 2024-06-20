@@ -5,7 +5,7 @@ import UserTheme from "../Home/context/UserTheme";
 import UserContext from "../Home/context/UserContext";
 
 function NavLinks({ icon, linkName, toLink, classes = "item" }) {
-  const { isThemeModeLight, toggleTheme } = useContext(UserTheme);
+  const { isThemeModeLight, toggleTheme, handleMore } = useContext(UserTheme);
   const { handleLogOut, handleSwitch } = useContext(UserContext);
   // handle mouse hover Effect
   const [isHovered, setIsHovered] = useState(false);
@@ -17,7 +17,7 @@ function NavLinks({ icon, linkName, toLink, classes = "item" }) {
   };
   const ThemeColors = {
     // backgroundColor: isThemeModeLight ? "white" : "black",
-    color: isThemeModeLight ? "black" : "white",
+    color: isThemeModeLight ? "#333" : "white",
   };
   // handle mouse hover color effects
   const dynamicStyles = {
@@ -45,10 +45,13 @@ function NavLinks({ icon, linkName, toLink, classes = "item" }) {
       onClick={(e) => {
         if (linkName === "Switch appearance") {
           handleTheme(e);
+          handleMore();
         } else if (linkName === "Log out") {
           handleLogOut(e);
+          handleMore();
         } else if (linkName === "Switch accounts") {
           handleSwitch(e);
+          handleMore();
         }
       }}
       style={dynamicStyles}

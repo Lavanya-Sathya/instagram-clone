@@ -60,7 +60,7 @@ function Post({ user, postImage, likes, timestamp, caption, type }) {
       ? ((e.target.style.color = "red"),
         (e.target.className = "bi bi-heart-fill"))
       : ((e.target.className = "bi bi-heart"),
-        (e.target.style.color = isThemeModeLight ? "black" : "white"));
+        (e.target.style.color = isThemeModeLight ? "#333" : "white"));
     setcolorHeart(!colorHeart);
   };
   const handleSavePost = (e) => {
@@ -116,7 +116,7 @@ function Post({ user, postImage, likes, timestamp, caption, type }) {
           <div className="postFooterIcons d-flex gap-2">
             <i
               className="bi bi-heart"
-              style={{ color: isThemeModeLight ? "black" : "white" }}
+              style={{ color: isThemeModeLight ? "#333" : "white" }}
               onClick={(e) => handleHeart(e)}
             ></i>
             <i className="bi bi-chat"></i>
@@ -151,8 +151,8 @@ function Post({ user, postImage, likes, timestamp, caption, type }) {
             value={comment}
             onChange={(e) => handleAddComment(e)}
             style={{
-              backgroundColor: isThemeModeLight ? "white" : "black",
-              color: isThemeModeLight ? "black" : "white",
+              backgroundColor: isThemeModeLight ? "white" : "#333",
+              color: isThemeModeLight ? "#333" : "white",
             }}
           ></textarea>
           <div className="d-flex align-items-center">
@@ -160,7 +160,7 @@ function Post({ user, postImage, likes, timestamp, caption, type }) {
               className="btnCommentPost"
               style={{
                 display: addComment ? "block" : "none",
-                backgroundColor: isThemeModeLight ? "white" : "black",
+                backgroundColor: isThemeModeLight ? "white" : "#333",
               }}
             >
               Post

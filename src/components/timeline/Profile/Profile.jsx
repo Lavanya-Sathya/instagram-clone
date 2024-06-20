@@ -77,8 +77,8 @@ function Profile() {
                   ? "3px solid rgb(68, 66, 66)"
                   : "3px solid #e0e0e0"
                 : "none",
-              backgroundColor: isThemeModeLight ? "white" : "black",
-              color: isThemeModeLight ? "black" : "white",
+              backgroundColor: isThemeModeLight ? "white" : "#333",
+              color: isThemeModeLight ? "#333" : "white",
             }}
           >
             Posts
@@ -93,8 +93,8 @@ function Profile() {
                   ? isThemeModeLight
                   : "3px solid rgb(68, 66, 66)"
                 : "3px solid #e0e0e0",
-              backgroundColor: isThemeModeLight ? "white" : "black",
-              color: isThemeModeLight ? "black" : "white",
+              backgroundColor: isThemeModeLight ? "white" : "#333",
+              color: isThemeModeLight ? "#333" : "white",
             }}
           >
             Reels

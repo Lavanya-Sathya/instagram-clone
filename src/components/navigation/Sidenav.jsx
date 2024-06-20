@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import UserTheme from "../Home/context/UserTheme";
 import NavLinks from "./NavLinks";
 function Sidenav() {
-  const { isThemeModeLight } = useContext(UserTheme);
-  const [moreClick, setMoreClick] = useState(false);
+  const { isThemeModeLight, moreClick, handleMore } = useContext(UserTheme);
+
   const ThemeColors = {
-    // backgroundColor: isThemeModeLight ? "white" : "black",
-    color: isThemeModeLight ? "black" : "white",
+    // backgroundColor: isThemeModeLight ? "white" : "#333",
+    color: isThemeModeLight ? "#333" : "white",
   };
   return (
     // Side navbar contains various option to explore
@@ -27,11 +27,11 @@ function Sidenav() {
             window.innerWidth <= 780
               ? isThemeModeLight
                 ? "white"
-                : "black"
+                : "#333"
               : isThemeModeLight
               ? "white"
-              : "black",
-          color: isThemeModeLight ? "black" : "white",
+              : "#333",
+          color: isThemeModeLight ? "#333" : "white",
         }}
       >
         <i className="bi bi-instagram" style={ThemeColors}></i>
@@ -53,7 +53,7 @@ function Sidenav() {
             window.innerWidth <= 780
               ? isThemeModeLight
                 ? "white"
-                : "black"
+                : "#333"
               : "initial",
           borderTop:
             window.innerWidth <= 780
@@ -114,7 +114,7 @@ function Sidenav() {
         />
       </div>
       {/* More option onclick gives the other options to explore */}
-      <div className="item item-end" onClick={() => setMoreClick(!moreClick)}>
+      <div className="item item-end" onClick={() => handleMore()}>
         <i className="bi bi-list" style={ThemeColors}></i>
         <p className=" m-0" style={ThemeColors}>
           More
@@ -125,32 +125,32 @@ function Sidenav() {
           className="moreComp"
           style={{
             backgroundColor: isThemeModeLight ? "#e0e0e0" : "rgb(70, 66, 66)",
-            color: isThemeModeLight ? "black" : "white",
+            color: isThemeModeLight ? "#333" : "white",
           }}
         >
           {/* Settings */}
-          <NavLinks
+          {/* <NavLinks
             classes="itemM"
             icon="bi bi-gear-wide"
             linkName="Setting"
             toLink=""
-          />
+          /> */}
 
           {/* Activity section */}
-          <NavLinks
+          {/* <NavLinks
             classes="itemM"
             icon="bi bi-activity"
             linkName="Your Activity"
             toLink=""
-          />
+          /> */}
 
           {/* Saved posts */}
-          <NavLinks
+          {/* <NavLinks
             classes="itemM"
             icon="bi bi-bookmark"
             linkName="Saved"
             toLink=""
-          />
+          /> */}
 
           {/*Background Color change option */}
           <NavLinks
@@ -160,12 +160,12 @@ function Sidenav() {
             toLink=""
           />
           {/* Report a problem */}
-          <NavLinks
+          {/* <NavLinks
             classes="itemM mb-2"
             icon="bi bi-exclamation-octagon"
             linkName=" Report a problem"
             toLink=""
-          />
+          /> */}
 
           {/* Switch the account */}
           <NavLinks

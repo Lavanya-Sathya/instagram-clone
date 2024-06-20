@@ -15,7 +15,7 @@ import Message from "../timeline/Message/Message";
 import Notification from "../timeline/Notification/Notification";
 import UserTheme from "./context/UserTheme";
 function Homepage() {
-  const { isThemeModeLight } = useContext(UserTheme);
+  const { isThemeModeLight, moreFalse } = useContext(UserTheme);
   const navigate = useNavigate();
   useEffect(() => {
     // authorization not provided to home page if the token is expired
@@ -30,14 +30,14 @@ function Homepage() {
       <div
         className="homepage"
         style={{
-          backgroundColor: isThemeModeLight ? "white" : "black",
-          color: isThemeModeLight ? "black" : "white",
+          backgroundColor: isThemeModeLight ? "white" : "#333",
+          color: isThemeModeLight ? "#333" : "white",
         }}
       >
         <div className="homepageNav">
           <Sidenav />
         </div>
-        <div className="homepageTimeline">
+        <div className="homepageTimeline" onClick={() => moreFalse()}>
           {/* Route different pages after successfull login */}
           <Routes>
             <Route path="/" element={<Timeline />} />

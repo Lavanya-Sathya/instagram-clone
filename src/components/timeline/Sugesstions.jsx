@@ -51,7 +51,7 @@ function Sugesstions() {
         </div>
         <button
           className="btnSugFollow"
-          style={{ backgroundColor: isThemeModeLight ? "white" : "black" }}
+          style={{ backgroundColor: isThemeModeLight ? "white" : "#333" }}
           onClick={(e) => handleSwitch(e)}
         >
           Switch
@@ -77,7 +77,7 @@ function Sugesstions() {
               <button
                 className="btnSugFollow"
                 style={{
-                  backgroundColor: isThemeModeLight ? "white" : "black",
+                  backgroundColor: isThemeModeLight ? "white" : "#333",
                 }}
               >
                 Follow
