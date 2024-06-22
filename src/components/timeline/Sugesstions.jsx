@@ -65,8 +65,8 @@ function Sugesstions() {
       </div>
       <div className="sugContainerHome d-flex flex-column gap-3">
         {suggestion ? (
-          suggestion.map((suggestUser) => (
-            <div className=" d-flex justify-content-between">
+          suggestion.map((suggestUser, idx) => (
+            <div className=" d-flex justify-content-between" key={idx}>
               <div className="sugImgName d-flex gap-2" key={suggestUser.id}>
                 <img src={userImg} alt="" />
                 <div className="">

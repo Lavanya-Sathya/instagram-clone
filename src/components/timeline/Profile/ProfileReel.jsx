@@ -8,14 +8,16 @@ import {
   orderBy,
 } from "firebase/firestore";
 import "./Profile.css";
+
 function ProfileReel() {
-  const [profileReel, setProfileReel] = useState(null);
+  const [profileReel, setProfileReel] = useState([]);
+  const videoRefs = useRef([]);
+
   useEffect(() => {
-    // Fetch the current user's post data from the firebase
     const userId = JSON.parse(sessionStorage.getItem("Token"));
     const fetchUserData = async () => {
       try {
-        const snapshot = await onSnapshot(
+        onSnapshot(
           query(
             collection(db, "posts"),
             where("uid", "==", userId),
@@ -36,38 +38,45 @@ function ProfileReel() {
     };
     fetchUserData();
   }, []);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const videoRef = useRef(null);
 
-  const onVideoPress = () => {
-    if (isVideoPlaying) {
-      // pause video
-      videoRef.current.pause();
-      setIsVideoPlaying(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState({});
+
+  const onVideoPress = (index) => {
+    const videoRef = videoRefs.current[index];
+    if (isVideoPlaying[index]) {
+      videoRef.pause();
+      setIsVideoPlaying((prev) => ({ ...prev, [index]: false }));
     } else {
-      // play video
-      videoRef.current.play();
-      setIsVideoPlaying(true);
+      videoRef.play();
+      setIsVideoPlaying((prev) => ({ ...prev, [index]: true }));
     }
   };
+
   return (
     <div className="ProfilePostCont mt-4">
-      {profileReel ? (
+      {profileReel.length > 0 ? (
         <div className="gridContainer">
-          {profileReel.map((post) => (
+          {profileReel.map((post, index) => (
             <div className="grid" key={post.id}>
-              {console.log(post.data.postImage)}
-              <video
-                src={post.data.postImage}
-                alt="pics"
-                ref={videoRef}
-                onClick={onVideoPress}
-              />
+              <div className="postVideo">
+                <i
+                  className="bi bi-play-fill playBtn"
+                  style={{ display: isVideoPlaying[index] ? "none" : "block" }}
+                  onClick={() => onVideoPress(index)}
+                ></i>
+                <video
+                  src={post.data.postImage}
+                  ref={(el) => (videoRefs.current[index] = el)}
+                  onClick={() => onVideoPress(index)}
+                  className="w-100"
+                  loop={true}
+                />
+              </div>
             </div>
           ))}
         </div>
       ) : (
-        <div className="text-center ">
+        <div className="text-center">
           <h3>Share a moment with the World</h3>
           <p>Create your First Reel</p>
         </div>
