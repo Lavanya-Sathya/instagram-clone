@@ -40,15 +40,29 @@ function ProfileReel() {
   }, []);
 
   const [isVideoPlaying, setIsVideoPlaying] = useState({});
-
+  const [currentPlayingIndex, setCurrentPlayingIndex] = useState(null);
+  // handle video play and pause
   const onVideoPress = (index) => {
     const videoRef = videoRefs.current[index];
     if (isVideoPlaying[index]) {
       videoRef.pause();
       setIsVideoPlaying((prev) => ({ ...prev, [index]: false }));
     } else {
+      // Pause the currently playing video if there is one
+      if (
+        currentPlayingIndex !== null &&
+        videoRefs.current[currentPlayingIndex]
+      ) {
+        videoRefs.current[currentPlayingIndex].pause();
+        setIsVideoPlaying((prev) => ({
+          ...prev,
+          [currentPlayingIndex]: false,
+        }));
+      }
+
       videoRef.play();
       setIsVideoPlaying((prev) => ({ ...prev, [index]: true }));
+      setCurrentPlayingIndex(index);
     }
   };
 
